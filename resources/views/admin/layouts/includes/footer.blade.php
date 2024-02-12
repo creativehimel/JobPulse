@@ -7,15 +7,15 @@
         <script>
             document.write(new Date().getFullYear());
         </script>
-        , made with ❤️ by <a href="https://pixinvent.com" target="_blank" class="fw-medium">Pixinvent</a>
+        All Rights Reserved by Job Pulse, made with ❤️ by <a href="https://devhimel.com" target="_blank" class="fw-medium">Md. Himel Ali</a>
         </div>
         <div class="d-none d-lg-inline-block">
-        <a
+        {{-- <a
             href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/"
             target="_blank"
             class="footer-link me-4"
             >Documentation</a
-        >
+        > --}}
         </div>
     </div>
     </div>

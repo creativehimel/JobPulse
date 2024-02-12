@@ -7,21 +7,21 @@
   data-theme="theme-default"
   data-assets-path="../../assets/"
   data-template="vertical-menu-template-no-customizer-starter">
-  @include('layouts.includes.head')
+  @include('admin.layouts.includes.head')
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
 
-        @include('layouts.includes.sidebar')
+        @include('admin.layouts.includes.sidebar')
         <!-- / Menu -->
 
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
 
-          @include('layouts.includes.topbar')
+          @include('admin.layouts.includes.topbar')
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
@@ -34,7 +34,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            @include('layouts.includes.footer')
+            @include('admin.layouts.includes.footer')
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -52,6 +52,6 @@
     </div>
     <!-- / Layout wrapper -->
 
-    @include('layouts.includes.scripts')
+    @include('admin.layouts.includes.scripts')
   </body>
 </html>
