@@ -90,7 +90,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="layouts-without-navbar.html" class="menu-link">
+                <a href="{{route('job-tags.index')}}" class="menu-link">
                 Job Tags
                 </a>
             </li>
