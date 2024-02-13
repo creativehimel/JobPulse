@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('page_title', 'Permissions')
 @section('main_content')
 <div class="row">
     <div class="col-md-12">
@@ -117,4 +118,4 @@
   </div>
 </div>
     
-@endsection
+@endsection()
