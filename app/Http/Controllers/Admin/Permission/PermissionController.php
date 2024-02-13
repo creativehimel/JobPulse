@@ -34,12 +34,14 @@ class PermissionController extends Controller
         $permission->update([
             "name"=> $request->name
             ]);
-        return redirect()->back()->with("success","Permission updated sucssfully.");
+        notify()->success('Permission updated sucssfully.');
+        return redirect()->back();
     }
     public function destroy($id)
     {
         $permission = Permission::findOrFail($id);
         $permission->delete();
-        return redirect()->back()->with("success","Permission deleted successfully");
+        notify()->success('Permission deleted successfully.');
+        return redirect()->back();
     }
 }

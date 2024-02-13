@@ -6,7 +6,7 @@
   dir="ltr"
   data-theme="theme-default"
   data-assets-path="../../assets/"
-  data-template="vertical-menu-template-no-customizer-starter">
+  data-template="vertical-menu-template-starter">
   @include('admin.layouts.includes.head')
   <body>
     <!-- Layout wrapper -->
