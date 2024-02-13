@@ -61,37 +61,42 @@
             <ul class="menu-sub">
             <li class="menu-item">
                 <a href="layouts-collapsed-menu.html" class="menu-link">
-                <div data-i18n="Collapsed menu">Collapsed menu</div>
+                Job Types
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="layouts-collapsed-menu.html" class="menu-link">
+                Job Shifts
                 </a>
             </li>
             <li class="menu-item">
                 <a href="layouts-content-navbar.html" class="menu-link">
-                <div data-i18n="Content navbar">Content navbar</div>
+                Job Skills
                 </a>
             </li>
             <li class="menu-item">
                 <a href="layouts-content-navbar-with-sidebar.html" class="menu-link">
-                <div data-i18n="Content nav + Sidebar">Content nav + Sidebar</div>
+                Job Experiences
                 </a>
             </li>
             <li class="menu-item">
                 <a href="../horizontal-menu-template" class="menu-link" target="_blank">
-                <div data-i18n="Horizontal">Horizontal</div>
+                Functional Area
                 </a>
             </li>
             <li class="menu-item">
-                <a href="layouts-without-menu.html" class="menu-link">
-                <div data-i18n="Without menu">Without menu</div>
+                <a href="{{route('job-categories.index')}}" class="menu-link">
+                Job Category
                 </a>
             </li>
             <li class="menu-item">
                 <a href="layouts-without-navbar.html" class="menu-link">
-                <div data-i18n="Without navbar">Without navbar</div>
+                Job Tags
                 </a>
             </li>
             <li class="menu-item">
                 <a href="layouts-fluid.html" class="menu-link">
-                <div data-i18n="Fluid">Fluid</div>
+                Degree Levels
                 </a>
             </li>
             <li class="menu-item">
@@ -101,7 +106,17 @@
             </li>
             <li class="menu-item">
                 <a href="layouts-blank.html" class="menu-link">
-                <div data-i18n="Blank">Blank</div>
+                Degree Types
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="layouts-blank.html" class="menu-link">
+                Career Lavels
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="layouts-blank.html" class="menu-link">
+                Language Lavels
                 </a>
             </li>
             </ul>
