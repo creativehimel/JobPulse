@@ -39,19 +39,19 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-    <!-- Page -->
-    <li class="menu-item active">
-        <a href="index.html" class="menu-link">
-        <i class="menu-icon tf-icons ti ti-smart-home"></i>
-        <div data-i18n="Page 1">Page 1</div>
-        </a>
-    </li>
-    <li class="menu-item">
-        <a href="page-2.html" class="menu-link">
-        <i class="menu-icon tf-icons ti ti-app-window"></i>
-        <div data-i18n="Page 2">Page 2</div>
-        </a>
-    </li>
+        <!-- Page -->
+        <li class="menu-item active">
+            <a href="index.html" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <div data-i18n="Page 1">Page 1</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="page-2.html" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-app-window"></i>
+            <div data-i18n="Page 2">Page 2</div>
+            </a>
+        </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-tags"></i>
@@ -59,66 +59,66 @@
             </a>
 
             <ul class="menu-sub">
-            <li class="menu-item">
-                <a href="{{route('job-types.index')}}" class="menu-link">
-                Job Types
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{route('job-shifts.index')}}" class="menu-link">
-                Job Shifts
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-content-navbar.html" class="menu-link">
-                Job Skills
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-content-navbar-with-sidebar.html" class="menu-link">
-                Job Experiences
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="../horizontal-menu-template" class="menu-link" target="_blank">
-                Functional Area
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{route('job-categories.index')}}" class="menu-link">
-                Job Category
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{route('job-tags.index')}}" class="menu-link">
-                Job Tags
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-fluid.html" class="menu-link">
-                Degree Levels
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-container.html" class="menu-link">
-                <div data-i18n="Container">Container</div>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-blank.html" class="menu-link">
-                Degree Types
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-blank.html" class="menu-link">
-                Career Lavels
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="layouts-blank.html" class="menu-link">
-                Language Lavels
-                </a>
-            </li>
+                <li class="menu-item">
+                    <a href="{{route('job-types.index')}}" class="menu-link">
+                    Job Types
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-shifts.index')}}" class="menu-link">
+                    Job Shifts
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-skills.index')}}" class="menu-link">
+                    Job Skills
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-content-navbar-with-sidebar.html" class="menu-link">
+                    Job Experiences
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../horizontal-menu-template" class="menu-link" target="_blank">
+                    Functional Area
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-categories.index')}}" class="menu-link">
+                    Job Category
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-tags.index')}}" class="menu-link">
+                    Job Tags
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-fluid.html" class="menu-link">
+                    Degree Levels
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-container.html" class="menu-link">
+                    <div data-i18n="Container">Container</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-blank.html" class="menu-link">
+                    Degree Types
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-blank.html" class="menu-link">
+                    Career Lavels
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-blank.html" class="menu-link">
+                    Language Lavels
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">
@@ -136,6 +136,45 @@
                 <li class="menu-item">
                     <a href="{{route('cities.index')}}" class="menu-link">
                     Cities
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons ti ti-apps"></i>
+            General
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{route('countries.index')}}" class="menu-link">
+                    Marital Status
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('skills.index')}}" class="menu-link">
+                    Skills
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('countries.index')}}" class="menu-link">
+                    Salary Periods
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('countries.index')}}" class="menu-link">
+                    Career Levels
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('countries.index')}}" class="menu-link">
+                    Salary Currencies
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('cities.index')}}" class="menu-link">
+                    Languages
                     </a>
                 </li>
             </ul>
