@@ -60,7 +60,7 @@
 
             <ul class="menu-sub">
             <li class="menu-item">
-                <a href="layouts-collapsed-menu.html" class="menu-link">
+                <a href="{{route('job-types.index')}}" class="menu-link">
                 Job Types
                 </a>
             </li>
