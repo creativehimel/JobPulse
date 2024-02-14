@@ -9,9 +9,9 @@
                     <a href="#">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item">
-                    <a href="#">General</a>
+                    <a href="#">Job</a>
                     </li>
-                    <li class="breadcrumb-item active">Skills</li>
+                    <li class="breadcrumb-item active">Job Skills</li>
                 </ol>
             </nav>
         </div>
@@ -54,7 +54,7 @@
                                                         <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="{{'#edit'.$skill->id.'Modal'}}">
                                                             <i class="ti ti-pencil me-1"></i> Edit
                                                         </button>
-                                                        <form action="{{route('skills.destroy', $skill->id)}}" method="POST">
+                                                        <form action="{{route('job-skills.destroy', $skill->id)}}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="dropdown-item delete">
@@ -66,7 +66,7 @@
                                                 {{-- Edit Modal --}}
                                                 <div class="modal fade" id="{{'edit'.$skill->id.'Modal'}}" data-bs-backdrop="static" tabindex="-2">
                                                     <div class="modal-dialog modal-dialog-centered">
-                                                        <form class="modal-content" method="POST" action="{{route('skills.update', $skill->id)}}">
+                                                        <form class="modal-content" method="POST" action="{{route('job-skills.update', $skill->id)}}">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="modal-header">
@@ -112,7 +112,7 @@
     <!-- Modal -->
     <div class="modal fade" id="addModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <form class="modal-content" method="POST" action="{{route('skills.store')}}">
+            <form class="modal-content" method="POST" action="{{route('job-skills.store')}}">
                 @csrf
             <div class="modal-header">
                 <h5 class="modal-title" id="backDropModalTitle">Create Skill</h5>

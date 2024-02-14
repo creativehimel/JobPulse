@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-content-navbar-with-sidebar.html" class="menu-link">
+                    <a href="{{route('job-experiences.index')}}" class="menu-link">
                     Job Experiences
                     </a>
                 </li>
@@ -150,11 +150,6 @@
                 <li class="menu-item">
                     <a href="{{route('countries.index')}}" class="menu-link">
                     Marital Status
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{route('skills.index')}}" class="menu-link">
-                    Skills
                     </a>
                 </li>
                 <li class="menu-item">
