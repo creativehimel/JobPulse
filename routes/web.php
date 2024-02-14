@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Job\JobCategoryController;
+use App\Http\Controllers\Admin\Job\JobShiftController;
 use App\Http\Controllers\Admin\Job\JobTagsController;
 use App\Http\Controllers\Admin\Job\JobTypeController;
 use App\Http\Controllers\Admin\Location\CityController;
@@ -29,5 +30,6 @@ Route::prefix('admin')->group(function () {
     Route::resource('/job-categories', JobCategoryController::class);
     Route::resource('/job-tags', JobTagsController::class);
     Route::resource('/job-types', JobTypeController::class);
+    Route::resource('/job-shifts', JobShiftController::class);
 });
 

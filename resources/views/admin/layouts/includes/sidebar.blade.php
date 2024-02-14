@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="layouts-collapsed-menu.html" class="menu-link">
+                <a href="{{route('job-shifts.index')}}" class="menu-link">
                 Job Shifts
                 </a>
             </li>
