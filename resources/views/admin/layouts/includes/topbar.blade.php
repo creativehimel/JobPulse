@@ -50,7 +50,7 @@ id="layout-navbar">
                     </div>
                     </div>
                     <div class="flex-grow-1">
-                    <span class="fw-medium d-block">John Doe</span>
+                    <span class="fw-medium d-block">{{Auth()->guard('admin')->user()->name}}</span>
                     <small class="text-muted">Admin</small>
                     </div>
                 </div>
