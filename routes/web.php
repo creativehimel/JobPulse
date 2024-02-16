@@ -77,6 +77,9 @@ Route::prefix('admin')->group(function () {
 Route::prefix('recruiter')->group(function () {
     Route::match(['get','post'],'/login',[RecruiterController::class,'login'])->name('recruiter.login');
     Route::match(['get','post'],'/register',[RecruiterController::class,'register'])->name('recruiter.register');
+    Route::match(['get','post'],'/forgot-password',[RecruiterController::class,'forgotPassword'])->name('recruiter.forgot.password');
+    Route::get('/reset-password/{token}/{email}', [RecruiterController::class,'resetPassword'])->name('recruiter.reset.password');
+    Route::get('/update-password', [RecruiterController::class,'updatePassword'])->name('recruiter.update.password');
     Route::middleware(['recruiter'])->group(function () {
         Route::get('/dashboard', [RecruiterController::class,'index'])->name('recruiter.index');
         Route::get('/logout', [RecruiterController::class, 'logout'])->name('recruiter.logout');
