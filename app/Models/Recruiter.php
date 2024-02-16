@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Recruiter extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    protected $guard = "recruiter";
 
     /**
      * The attributes that are mass assignable.

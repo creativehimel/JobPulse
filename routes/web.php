@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Recruiter\RecruiterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
@@ -44,7 +45,7 @@ require __DIR__.'/auth.php';
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 */
 
@@ -65,4 +66,20 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     });
+});
+
+/*
+|--------------------------------------------------------------------------
+| Recruiter Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('recruiter')->group(function () {
+    Route::match(['get','post'],'/login',[RecruiterController::class,'login'])->name('recruiter.login');
+    Route::match(['get','post'],'/register',[RecruiterController::class,'register'])->name('recruiter.register');
+    Route::middleware(['recruiter'])->group(function () {
+        Route::get('/dashboard', [RecruiterController::class,'index'])->name('recruiter.index');
+        Route::get('/logout', [RecruiterController::class, 'logout'])->name('recruiter.logout');
+    });
+     
 });
