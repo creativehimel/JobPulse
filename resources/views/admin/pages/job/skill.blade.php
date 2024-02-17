@@ -45,7 +45,7 @@
                                             <td>
                                                 <span class="fw-medium">{{ucwords($skill->name)}}</span>
                                             </td>
-                                            <td>{{$skill->description}}</td>
+                                            <td>{{Str::words($skill->description, 15)}}</td>
                                             <td>{{$skill->created_at->toFormattedDateString()}}</td>
                                             <td>
                                                 <div class="dropdown">
@@ -135,7 +135,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer mt-5">
+            <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Save</button>
                 <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
             </div>

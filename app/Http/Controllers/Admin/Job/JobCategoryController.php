@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Job;
 
 use App\Models\JobCategory;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,12 @@ class JobCategoryController extends Controller
         $request->validate([
             "name"=> "required|string|unique:job_categories,name",
         ]);
-        JobCategory::create($request->all());
+        $slug = Str::slug($request->name);
+        JobCategory::create([
+            "name"=> $request->name,
+            "slug"=> $slug,
+            "description" => $request->description,
+        ]);
         notify()->success("Job Category created successfully.");
         return redirect()->back();    
     }
@@ -25,8 +31,10 @@ class JobCategoryController extends Controller
         $request->validate([
             "name"=> "required|string|unique:job_categories,name,".$jobCategory->id,
         ]);
+        $slug = Str::slug($request->name);
         $jobCategory->update([
             "name"=> $request->name,
+            "slug"=> $slug,
             "description" => $request->description,
             "is_featured" => $request->is_featured,
         ]);
