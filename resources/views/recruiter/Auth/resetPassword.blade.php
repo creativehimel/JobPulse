@@ -14,7 +14,7 @@
               </div>
               <!-- /Logo -->
               <h4 class="mb-1 py-2 text-center">Reset Password 🔒</h4>
-              <form id="formAuthentication" action="{{route('recruiter.update.password')}}" method="POST">
+              <form  action="{{route('recruiter.update.password')}}" method="POST">
                 @csrf
                 <input type="hidden" name="token" value="{{$token}}">
                 <input type="hidden" name="email" value="{{$email}}">
@@ -23,7 +23,7 @@
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      id="password"
+                      {{-- id="password" --}}
                       class="form-control"
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -41,7 +41,7 @@
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      id="confirm-password"
+                      {{-- id="confirm-password" --}}
                       class="form-control"
                       name="password_confirmation"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"

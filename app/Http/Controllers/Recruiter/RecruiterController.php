@@ -66,7 +66,7 @@ class RecruiterController extends Controller
             $recruiter->token = $token;
             $recruiter->update();
             $resetLink = url('recruiter/reset-password/'.$token.'/'.$request->email);
-            Mail::to($recruiter->email)->send(new ResetPasswordMail($resetLink));
+            Mail::to($recruiter->email)->send(new ResetPasswordMail($resetLink,$recruiter->email ,$recruiter->name));
             notify()->success('Reset password link sent successfully.');
             return redirect()->back();
 
@@ -84,6 +84,7 @@ class RecruiterController extends Controller
         return view("recruiter.Auth.resetPassword", compact("token", "email"));
     }
     public function updatePassword(Request $request){
+        //dd($request->all());
         $request->validate([
             "password" => "required|confirmed"
         ]);
