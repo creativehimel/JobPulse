@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Job\CareerLevelController;
 use App\Http\Controllers\Recruiter\RecruiterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -63,6 +64,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/job-shifts', JobShiftController::class);
         Route::resource('/job-skills', JobSkillController::class);
         Route::resource('/job-experiences', JobExperienceController::class);
+        Route::resource('/career-levels', CareerLevelController::class);
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     });

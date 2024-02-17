@@ -100,17 +100,12 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                    </a>
-                </li>
-                <li class="menu-item">
                     <a href="layouts-blank.html" class="menu-link">
                     Degree Types
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
+                    <a href="{{route('career-levels.index')}}" class="menu-link">
                     Career Lavels
                     </a>
                 </li>
