@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
+                    <a href="{{route('language-levels.index')}}" class="menu-link">
                     Language Lavels
                     </a>
                 </li>

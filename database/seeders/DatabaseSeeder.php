@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             JobCategorySeeder::class,
             JobTagSeeder::class,
             CareerLevelSeeder::class,
+            LanguageLevelSeeder::class,
         ]);
     }
 }
