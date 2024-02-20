@@ -95,7 +95,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-fluid.html" class="menu-link">
+                    <a href="{{route('degree-levels.index')}}" class="menu-link">
                     Degree Levels
                     </a>
                 </li>

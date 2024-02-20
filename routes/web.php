@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Job\CareerLevelController;
+use App\Http\Controllers\Admin\Job\DegreeLevelController;
 use App\Http\Controllers\Admin\Job\LanguageLevelController;
 use App\Http\Controllers\Recruiter\RecruiterController;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/job-experiences', JobExperienceController::class);
         Route::resource('/career-levels', CareerLevelController::class);
         Route::resource('/language-levels', LanguageLevelController::class);
+        Route::resource('/degree-levels', DegreeLevelController::class);
 
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
