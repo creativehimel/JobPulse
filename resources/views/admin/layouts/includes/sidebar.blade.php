@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
+                    <a href="{{route('degree-types.index')}}" class="menu-link">
                     Degree Types
                     </a>
                 </li>
