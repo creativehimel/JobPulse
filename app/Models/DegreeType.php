@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DegreeLevel extends Model
+class DegreeType extends Model
 {
     use HasFactory;
     protected $fillable = [
         "name",
+        "degree_level_id",
         "status",
     ];
-    public function degreeType(){
-        return $this->hasMany(DegreeType::class);
+    public function degreeLevel(){
+        return $this->belongsTo(DegreeLevel::class);
     }
 }
