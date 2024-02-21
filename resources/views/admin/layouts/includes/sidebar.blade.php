@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../horizontal-menu-template" class="menu-link" target="_blank">
+                    <a href="{{route('functional-areas.index')}}" class="menu-link">
                     Functional Area
                     </a>
                 </li>

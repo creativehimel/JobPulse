@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             LanguageLevelSeeder::class,
             DegreeLevelSeeder::class,
             DegreeTypeSeeder::class,
+            FunctionalAreaSeeder::class,
         ]);
     }
 }
