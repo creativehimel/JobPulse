@@ -152,7 +152,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('job-shifts.index')}}" class="menu-link">
+                    <a href="{{route('ownership-types.index')}}" class="menu-link">
                     Ownership Types
                     </a>
                 </li>
