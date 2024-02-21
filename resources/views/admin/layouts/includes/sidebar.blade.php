@@ -114,6 +114,11 @@
                     Salary Periods
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{route('salary-currencies.index')}}" class="menu-link">
+                    Salary Currencies
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">
