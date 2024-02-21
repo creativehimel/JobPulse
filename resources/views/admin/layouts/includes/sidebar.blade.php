@@ -141,6 +141,60 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons ti ti-list-details"></i>
+            Company Attributes
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{route('company-sizes.index')}}" class="menu-link">
+                    Company Sizes
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-shifts.index')}}" class="menu-link">
+                    Ownership Types
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-skills.index')}}" class="menu-link">
+                    Industries
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-experiences.index')}}" class="menu-link">
+                    Job Experiences
+                    </a>
+                </li>
+                
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons ti ti-building-factory-2"></i>
+            Companies
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{route('job-types.index')}}" class="menu-link">
+                    Industries
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('job-tags.index')}}" class="menu-link">
+                    Company Sizes
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route('salary-currencies.index')}}" class="menu-link">
+                    Ownership Types
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-world-pin"></i>
             Locations
             </a>

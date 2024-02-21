@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             MaritalStatusSeeder::class,
             SalaryPeriodSeeder::class,
             SalaryCurrencySeeder::class,
+            CompanySizeSeeder::class,
         ]);
     }
 }
