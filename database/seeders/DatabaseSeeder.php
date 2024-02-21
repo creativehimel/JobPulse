@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             DegreeLevelSeeder::class,
             DegreeTypeSeeder::class,
             FunctionalAreaSeeder::class,
+            MaritalStatusSeeder::class,
         ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\General\MaritalStatusController;
 use App\Http\Controllers\Admin\Job\CareerLevelController;
 use App\Http\Controllers\Admin\Job\DegreeLevelController;
 use App\Http\Controllers\Admin\Job\DegreeTypeController;
@@ -73,6 +74,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/degree-levels', DegreeLevelController::class);
         Route::resource('/degree-types', DegreeTypeController::class);
         Route::resource('/functional-areas', FunctionalAreaController::class);
+        Route::resource('/marital-status', MaritalStatusController::class);
 
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');

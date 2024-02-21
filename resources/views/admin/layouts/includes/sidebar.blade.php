@@ -156,7 +156,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{route('countries.index')}}" class="menu-link">
+                    <a href="{{route('marital-status.index')}}" class="menu-link">
                     Marital Status
                     </a>
                 </li>
