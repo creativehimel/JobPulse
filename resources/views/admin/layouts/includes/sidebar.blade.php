@@ -109,6 +109,11 @@
                     Language Lavels
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{route('salary-periods.index')}}" class="menu-link">
+                    Salary Periods
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">
@@ -160,11 +165,7 @@
                     Marital Status
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="{{route('countries.index')}}" class="menu-link">
-                    Salary Periods
-                    </a>
-                </li>
+                
                 <li class="menu-item">
                     <a href="{{route('countries.index')}}" class="menu-link">
                     Career Levels

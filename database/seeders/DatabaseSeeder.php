@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             DegreeTypeSeeder::class,
             FunctionalAreaSeeder::class,
             MaritalStatusSeeder::class,
+            SalaryPeriodSeeder::class,
         ]);
     }
 }

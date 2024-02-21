@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Job\DegreeLevelController;
 use App\Http\Controllers\Admin\Job\DegreeTypeController;
 use App\Http\Controllers\Admin\Job\FunctionalAreaController;
 use App\Http\Controllers\Admin\Job\LanguageLevelController;
+use App\Http\Controllers\Admin\Job\SalaryPeriodController;
 use App\Http\Controllers\Recruiter\RecruiterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -75,6 +76,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/degree-types', DegreeTypeController::class);
         Route::resource('/functional-areas', FunctionalAreaController::class);
         Route::resource('/marital-status', MaritalStatusController::class);
+        Route::resource('/salary-periods', SalaryPeriodController::class);
 
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
