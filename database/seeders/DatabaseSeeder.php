@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             SalaryCurrencySeeder::class,
             CompanySizeSeeder::class,
             OwnershipTypeSeeder::class,
+            IndustrySeeder::class,
         ]);
     }
 }

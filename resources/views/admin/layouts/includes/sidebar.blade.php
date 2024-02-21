@@ -157,16 +157,10 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('job-skills.index')}}" class="menu-link">
+                    <a href="{{route('industries.index')}}" class="menu-link">
                     Industries
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="{{route('job-experiences.index')}}" class="menu-link">
-                    Job Experiences
-                    </a>
-                </li>
-                
             </ul>
         </li>
         <li class="menu-item">

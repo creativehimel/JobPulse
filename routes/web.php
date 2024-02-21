@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Company\CompanySizeController;
+use App\Http\Controllers\Admin\Company\IndustryController;
 use App\Http\Controllers\Admin\Company\OwnershipTypeController;
 use App\Http\Controllers\Admin\General\MaritalStatusController;
 use App\Http\Controllers\Admin\Job\CareerLevelController;
@@ -83,6 +84,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/salary-currencies', SalaryCurrencyController::class);
         Route::resource('/company-sizes', CompanySizeController::class);
         Route::resource('/ownership-types', OwnershipTypeController::class);
+        Route::resource('/industries', IndustryController::class);
 
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
