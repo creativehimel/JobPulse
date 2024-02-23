@@ -112,34 +112,75 @@
     <!-- Modal -->
     <div class="modal fade" id="addCountryModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <form class="modal-content" method="POST" action="{{route('cities.store')}}">
-                @csrf
-            <div class="modal-header">
-                <h5 class="modal-title" id="backDropModalTitle">Create Country</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 mb-2">
-                        <label for="permissionName" class="form-label">City Name</label>
-                        <input type="text" id="permissionName" name="name" class="form-control" placeholder="Enter city name">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="exampleFormControlSelect1" class="form-label">Country Name</label>
-                        <select name="country_id" class="form-select" id="exampleFormControlSelect1">
-                            <option selected disabled>Select Country</option>
-                            @foreach ($countries as $country)
-                                <option value="{{$country->id}}">{{$country->name}}</option>
-                            @endforeach
-                        </select>
+            <form id="addCityForm" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="backDropModalTitle">Create Country</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 mb-2">
+                            <label for="permissionName" class="form-label">City Name</label>
+                            <input type="text" id="permissionName" name="name" class="form-control" placeholder="Enter city name">
+                            <span id="name_error" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="exampleFormControlSelect1" class="form-label">Country Name</label>
+                            <select name="country_id" class="form-select" id="exampleFormControlSelect1">
+                                <option selected disabled>Select Country</option>
+                                @foreach ($countries as $country)
+                                    <option value="{{$country->id}}">{{$country->name}}</option>
+                                @endforeach
+                            </select>
+                            <span id="country_id_error" class="text-danger"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary saveBtn">Save</button>
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </form>
         </div>
     </div>
 @endsection
+@push('custom_js')
+    <script>
+        $(document).ready(()=>{
+            $('#addCityForm').submit((event)=>{
+                event.preventDefault();
+                let formData = $(this).serialize();
+                $.ajax({
+                    url: '{{ route('cities.store') }}',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: ()=>{
+                        $('.saveBtn').html('<span class="spinner-border me-1" role="status" aria-hidden="true"></span>Loading...')
+                        $('.saveBtn').prop('disabled', true);
+                    },
+                    complete: ()=>{
+                        $('.saveBtn').html('Save')
+                        $('.saveBtn').prop('disabled', false);
+                    },
+                    success: (data)=>{
+                        // if(data.success == true){
+                        //     printSuccessMsg(data.msg);
+                        // }else if(data.success == false){
+                        //     printErrorMsg(data.msg);
+                        // }else{
+                        //     printValidationErrorMsg(data.msg)
+                        // }
+                        console.log(data.msg)
+                    },
+                    error: (error)=>{
+                        console.log(error)
+                    }
+                });
+                return false;
+
+            });
+        });
+    </script>
+    
+@endpush

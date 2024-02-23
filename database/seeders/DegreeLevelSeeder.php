@@ -20,7 +20,7 @@ class DegreeLevelSeeder extends Seeder
             ],
             [
                 "id"=> 2,
-                "name"=> "	Matriculation/O-Level",
+                "name"=> "Matriculation/O-Level",
             ],
             [
                 "id"=> 3,
