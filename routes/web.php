@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Job\FunctionalAreaController;
 use App\Http\Controllers\Admin\Job\LanguageLevelController;
 use App\Http\Controllers\Admin\Job\SalaryCurrencyController;
 use App\Http\Controllers\Admin\Job\SalaryPeriodController;
+use App\Http\Controllers\Recruiter\CompanyController;
 use App\Http\Controllers\Recruiter\RecruiterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -105,6 +106,7 @@ Route::prefix('recruiter')->group(function () {
     Route::post('/update-password', [RecruiterController::class,'updatePassword'])->name('recruiter.update.password');
     Route::middleware(['recruiter'])->group(function () {
         Route::get('/dashboard', [RecruiterController::class,'index'])->name('recruiter.index');
+        Route::resource('/profiles', CompanyController::class);
         Route::get('/logout', [RecruiterController::class, 'logout'])->name('recruiter.logout');
     });
      

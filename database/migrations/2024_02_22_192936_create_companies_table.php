@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('location')->nullable();
             $table->boolean('is_featured')->default(0)->comment('0 = inactive; 1 = active');
+            $table->boolean('is_active')->default(1)->comment('0 = inactive; 1 = active');
             $table->string('fax')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('twitter_url')->nullable();

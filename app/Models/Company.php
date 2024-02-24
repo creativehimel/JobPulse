@@ -21,6 +21,7 @@ class Company extends Model
         "website",
         "location",
         "is_featured",
+        "is_active",
         "fax",
         "facebook_url",
         "twitter_url",
@@ -28,5 +29,8 @@ class Company extends Model
         "google_plus_url",
         "pinterest_url",
     ];
+    public function recruiter(){
+        return $this->belongsTo(Recruiter::class);
+    }
 
 }

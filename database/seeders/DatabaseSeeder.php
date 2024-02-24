@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             CompanySizeSeeder::class,
             OwnershipTypeSeeder::class,
             IndustrySeeder::class,
+            CompanySeeder::class,
         ]);
     }
 }
