@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-    <a href="index.html" class="app-brand-link">
+    <a href="{{route('recruiter.index')}}" class="app-brand-link">
         <span class="app-brand-logo demo">
         <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -54,8 +54,8 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-            <i class="menu-icon tf-icons ti ti-tags"></i>
-            Job Attributes
+                <i class="menu-icon tf-icons ti ti-tags"></i>
+                <div data-i18n="Job Attributes">Job Attributes</div>
             </a>
 
             <ul class="menu-sub">

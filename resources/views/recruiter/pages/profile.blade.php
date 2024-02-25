@@ -33,7 +33,7 @@
                 <div class="user-profile-info">
                     <div class="d-flex justify-content-between">
                         <h4>{{$companyDetails->recruiter->name}}</h4>
-                        <a href="#" class=" btn btn-primary">Edit Profile</a>
+                        <a href="{{route('profiles.edit', $companyDetails->id)}}" class=" btn btn-primary">Edit Profile</a>
                     </div>
                     <ul
                         class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
