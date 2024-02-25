@@ -16,4 +16,7 @@ class City extends Model
     {
         return $this->belongsTo(Country::class);
     }
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
 }

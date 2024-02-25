@@ -22,6 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger('industry_id');
             $table->unsignedBigInteger('ownership_type_id');
             $table->unsignedBigInteger('company_size_id');
+            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('country_id');
             $table->string('website')->nullable();
             $table->string('location')->nullable();
             $table->boolean('is_featured')->default(0)->comment('0 = inactive; 1 = active');
@@ -36,6 +38,8 @@ return new class extends Migration
             $table->foreign('industry_id')->references('id')->on('industries')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('ownership_type_id')->references('id')->on('ownership_types')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('company_size_id')->references('id')->on('company_sizes')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('city_id')->references('id')->on('cities')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('country_id')->references('id')->on('countries')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

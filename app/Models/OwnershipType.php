@@ -12,4 +12,7 @@ class OwnershipType extends Model
         "name",
         "description",
     ];
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
 }

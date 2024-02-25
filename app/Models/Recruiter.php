@@ -48,4 +48,5 @@ class Recruiter extends Authenticatable
     public function company(){
         return $this->hasOne(Company::class);
     }
+    
 }

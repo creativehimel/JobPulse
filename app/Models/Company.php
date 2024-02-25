@@ -18,6 +18,8 @@ class Company extends Model
         "industry_id",
         "ownership_type_id",
         "company_size_id",
+        "city_id",
+        "country_id",
         "website",
         "location",
         "is_featured",
@@ -31,6 +33,21 @@ class Company extends Model
     ];
     public function recruiter(){
         return $this->belongsTo(Recruiter::class);
+    }
+    public function ownershipType(){
+        return $this->belongsTo(OwnershipType::class);
+    }
+    public function industry(){
+        return $this->belongsTo(Industry::class);
+    }
+    public function companySize(){
+        return $this->belongsTo(CompanySize::class);
+    }
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
+    public function country(){
+        return $this->belongsTo(Country::class);
     }
 
 }

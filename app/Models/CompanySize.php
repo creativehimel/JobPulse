@@ -11,4 +11,7 @@ class CompanySize extends Model
     protected $fillable = [
         "size",
     ];
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
 }

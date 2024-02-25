@@ -15,7 +15,6 @@ class CompanySeeder extends Seeder
     {
         $companyLists = [
             [
-                
                 'ceo' => 'Chris Silver',
                 'no_of_offices' => rand(1, 10),
                 'established_in' => 2020,
@@ -24,6 +23,8 @@ class CompanySeeder extends Seeder
                 'industry_id' => rand(1, 5),
                 'ownership_type_id' => rand(1, 5),
                 'company_size_id' => rand(1, 4),
+                'city_id' => rand(1, 8),
+                'country_id' => 18,
                 'website' => 'https://www.google.com',
                 'location' => 'USA',
                 'is_featured' => rand(1, 0),
@@ -39,5 +40,6 @@ class CompanySeeder extends Seeder
         foreach ($companyLists as $companyList) {
             Company::create($companyList);
         }
+
     }
 }

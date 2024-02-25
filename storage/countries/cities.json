@@ -1,0 +1,44 @@
+{
+    "cities": [
+        {
+            "id": "1",
+            "name": "Barishal",
+            "country_id": "18"
+        },
+        {
+            "id": "2",
+            "name": "Chattogram",
+            "country_id": "18"
+        },
+        {
+            "id": "3",
+            "name": "Dhaka",
+            "country_id": "18"
+        },
+        {
+            "id": "4",
+            "name": "Khulna",
+            "country_id": "18"
+        },
+        {
+            "id": "5",
+            "name": "Rajshahi",
+            "country_id": "18"
+        },
+        {
+            "id": "6",
+            "name": "Rangpur",
+            "country_id": "18"
+        },
+        {
+            "id": "7",
+            "name": "Sylhet",
+            "country_id": "18"
+        },
+        {
+            "id": "8",
+            "name": "Mymensingh",
+            "country_id": "18"
+        }
+    ]
+}

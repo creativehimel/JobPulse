@@ -17,4 +17,7 @@ class Country extends Model
     {
         return $this->hasMany(City::class);
     }
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
 }
