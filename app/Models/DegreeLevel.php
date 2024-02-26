@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class DegreeLevel extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "name",
-        "status",
+        'name',
+        'status',
     ];
-    public function degreeType(){
+
+    public function degreeType()
+    {
         return $this->hasMany(DegreeType::class);
     }
 }

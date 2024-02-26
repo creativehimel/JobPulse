@@ -55,13 +55,13 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-tags"></i>
-                <div data-i18n="Job Attributes">Job Attributes</div>
+                <div data-i18n="Job Attributes">Job Board</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
-                    Job Types
+                    <a href="{{route('jobs.index')}}" class="menu-link">
+                        Jobs
                     </a>
                 </li>
                 <li class="menu-item">

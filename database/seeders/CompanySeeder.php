@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Company;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CompanySeeder extends Seeder
 {
@@ -34,8 +33,8 @@ class CompanySeeder extends Seeder
                 'twitter_url' => 'https://www.twitter.com',
                 'linkedin_url' => 'https://www.linkedin.com',
                 'google_plus_url' => 'https://www.googleplus.com',
-                'pinterest_url' => 'https://www.pinterest.com',    
-            ]
+                'pinterest_url' => 'https://www.pinterest.com',
+            ],
         ];
         foreach ($companyLists as $companyList) {
             Company::create($companyList);

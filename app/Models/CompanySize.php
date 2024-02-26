@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class CompanySize extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "size",
+        'size',
     ];
-    public function company(){
+
+    public function company()
+    {
         return $this->hasOne(Company::class);
     }
 }

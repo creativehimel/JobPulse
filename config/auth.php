@@ -40,11 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'admin'=> [
+        'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        'recruiter'=> [
+        'recruiter' => [
             'driver' => 'session',
             'provider' => 'recruiters',
         ],
@@ -80,7 +80,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Recruiter::class,
         ],
-
 
         // 'users' => [
         //     'driver' => 'database',

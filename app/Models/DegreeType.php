@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class DegreeType extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "name",
-        "degree_level_id",
-        "status",
+        'name',
+        'degree_level_id',
+        'status',
     ];
-    public function degreeLevel(){
+
+    public function degreeLevel()
+    {
         return $this->belongsTo(DegreeLevel::class);
     }
 }

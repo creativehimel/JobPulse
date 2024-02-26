@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\SalaryCurrency;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SalaryCurrencySeeder extends Seeder
@@ -826,7 +825,7 @@ class SalaryCurrencySeeder extends Seeder
                 'status' => 1,
             ],
         ];
-        foreach($salaryCurrencies as $salaryCurrency){
+        foreach ($salaryCurrencies as $salaryCurrency) {
             SalaryCurrency::create($salaryCurrency);
         }
     }

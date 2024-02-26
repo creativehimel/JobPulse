@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class OwnershipType extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "name",
-        "description",
+        'name',
+        'description',
     ];
-    public function company(){
+
+    public function company()
+    {
         return $this->hasOne(Company::class);
     }
 }

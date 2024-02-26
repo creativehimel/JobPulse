@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\MaritalStatus;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MaritalStatusSeeder extends Seeder
@@ -15,21 +14,21 @@ class MaritalStatusSeeder extends Seeder
     {
         $maritalStatuses = [
             [
-                "id"=> 1,
-                "name"=> "Single",
+                'id' => 1,
+                'name' => 'Single',
             ],
             [
-                "id"=> 2,
-                "name"=> "Married",
+                'id' => 2,
+                'name' => 'Married',
             ],
             [
-                "id"=> 3,
-                "name" => "Divorced",
+                'id' => 3,
+                'name' => 'Divorced',
             ],
             [
-                "id"=> 4,
-                "name"=> "Separated",
-            ]
+                'id' => 4,
+                'name' => 'Separated',
+            ],
         ];
         foreach ($maritalStatuses as $maritalStatus) {
             MaritalStatus::create($maritalStatus);

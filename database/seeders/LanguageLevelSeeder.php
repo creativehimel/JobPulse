@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\LanguageLevel;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class LanguageLevelSeeder extends Seeder
@@ -15,17 +14,17 @@ class LanguageLevelSeeder extends Seeder
     {
         $levels = [
             [
-                "id"=> 1,
-                "name"=> "Beginner",
+                'id' => 1,
+                'name' => 'Beginner',
             ],
             [
-                "id"=> 2,
-                "name"=> "Intermediate",
+                'id' => 2,
+                'name' => 'Intermediate',
             ],
             [
-                "id"=> 3,
-                "name"=> "Expert",
-            ]
+                'id' => 3,
+                'name' => 'Expert',
+            ],
         ];
         foreach ($levels as $level) {
             LanguageLevel::create($level);

@@ -22,10 +22,14 @@
 @notifyJs
 @stack('custom_js')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+{{-- <script src="{{asset('assets/vendor/libs/flatpickr/flatpickr.js')}}" /> --}}
+<script src="{{asset('assets/vendor/libs/select2/select2.js')}}"></script>
+
 <script>
     $(document).ready(function() {
         $('.summernote').summernote({
             height: 150
         });
+        $(".select2").select2();
     });
 </script>

@@ -16,10 +16,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::guard("admin")->check()){
-            notify()->error("You are not able to admin access. Please login first.");
-            return redirect()->route("admin.login");
+        if (! Auth::guard('admin')->check()) {
+            notify()->error('You are not able to admin access. Please login first.');
+
+            return redirect()->route('admin.login');
         }
+
         return $next($request);
     }
 }

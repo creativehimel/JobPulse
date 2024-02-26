@@ -3,16 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class Recruiter extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
-    protected $guard = "recruiter";
+    use HasApiTokens, HasFactory, HasRoles, Notifiable;
+
+    protected $guard = 'recruiter';
 
     /**
      * The attributes that are mass assignable.
@@ -45,8 +46,9 @@ class Recruiter extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function company(){
+
+    public function company()
+    {
         return $this->hasOne(Company::class);
     }
-    
 }

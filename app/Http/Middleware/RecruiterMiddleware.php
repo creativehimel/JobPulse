@@ -16,10 +16,12 @@ class RecruiterMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::guard("recruiter")->check()){
-            notify()->error("You are not able to recruiter access. Please login first.");
-            return redirect()->route("recruiter.login");
+        if (! Auth::guard('recruiter')->check()) {
+            notify()->error('You are not able to recruiter access. Please login first.');
+
+            return redirect()->route('recruiter.login');
         }
+
         return $next($request);
     }
 }

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             RecruiterSeeder::class,
             CountrySeeder::class,
             CitySeeder::class,
+            GenderSeeder::class,
             JobSkillSeeder::class,
             JobTypeSeeder::class,
             JobShiftSeeder::class,

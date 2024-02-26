@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class JobCategory extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "name",
-        "slug",
-        "description",
-        "is_featured",
+        'name',
+        'slug',
+        'description',
+        'is_featured',
     ];
 }

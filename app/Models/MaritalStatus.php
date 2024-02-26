@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class MaritalStatus extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "name",
-        "status",
+        'name',
+        'status',
     ];
 }

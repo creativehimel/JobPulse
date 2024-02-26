@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class JobShift extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "shift",
-        "description",
+        'shift',
+        'description',
     ];
 }
