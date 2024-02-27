@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('job_skill', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('job_id');
-            $table->unsignedBigInteger('skill_id');
+            $table->foreignId('job_id')->constrained();
+            $table->foreignId('skill_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_jobskill');
+        Schema::dropIfExists('job_skill');
     }
 };

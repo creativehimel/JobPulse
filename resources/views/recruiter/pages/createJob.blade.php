@@ -1,5 +1,5 @@
 @extends('recruiter.layouts.app')
-@section('page_title', "Edit Profile")
+@section('page_title', "Create Job")
 @section('main_content')
     <div class="row">
         <div class="col-md-12">
@@ -18,7 +18,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card mb-4 p-2">    
+            <div class="card mb-4 p-2">
                 <div class="card-body">
                     <form action="{{route('jobs.store')}}" method="POST">
                         @csrf
@@ -67,16 +67,14 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="select2Primary">Job Skill : <span class="text-danger">*</span></label>
                                 <div class="select2-primary">
-                                    <select id="select2Primary" name="job_skill_id[]" class="select2 form-select @error('job_type_id') is-invalid @enderror" multiple>
+                                    <select id="select2Primary" name="skills[]" class="select2 form-select @error('job_type_id') is-invalid @enderror" multiple>
                                     <option value="" disabled>Select Job Skill</option>
                                         @foreach ($jobSkills as $jobSkill)
-                                            <option @if (old('job_skill_id') == $jobSkill->id)
-                                            selected
-                                        @endif value="{{$jobSkill->id}}">{{$jobSkill->name}}</option>
+                                            <option  value="{{$jobSkill->name}}">{{$jobSkill->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @error('job_skill_id')
+                                @error('skills')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -226,16 +224,14 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="select2PrimaryTag">Job Tag : <span class="text-danger">*</span></label>
                                 <div class="select2-primary">
-                                    <select name="job_tag_id[]" id="select2PrimaryTag" class="select2 form-select @error('job_tag_id') is-invalid @enderror" multiple>
+                                    <select name="tags[]" id="select2PrimaryTag" class="select2 form-select @error('job_tag_id') is-invalid @enderror" multiple>
                                     <option value="" disabled>Select Job Shift</option>
                                         @foreach ($jobTags as $jobTag)
-                                            <option @if (old('job_tag_id') == $jobTag->id)
-                                            selected
-                                        @endif value="{{$jobTag->id}}">{{ucfirst($jobTag->name)}}</option>
+                                            <option  value="{{$jobTag->name}}">{{ucfirst($jobTag->name)}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @error('job_tag_id')
+                                @error('tags')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>

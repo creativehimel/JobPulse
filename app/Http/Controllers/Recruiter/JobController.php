@@ -13,7 +13,6 @@ use App\Models\JobShift;
 use App\Models\Recruiter;
 use App\Models\DegreeType;
 use App\Models\CareerLevel;
-use App\Models\DegreeLevel;
 use App\Models\JobCategory;
 use Illuminate\Support\Str;
 use App\Models\SalaryPeriod;
@@ -76,25 +75,21 @@ class JobController extends Controller
             'salary_period_id'=> 'required|string',
             'job_experiance_id'=> 'required|string',
             'career_level_id'=> 'required|string',
-            'job_tag_id'=> 'required',
             'language_level_id'=> 'required|string',
             'marital_status_id'=> 'required|string',
             'degree_type_id'=> 'required|string',
             'job_type_id'=> 'required|string',
             'job_shift_id'=> 'required|string',
-            'job_skill_id'=> 'required',
             'functional_area_id'=> 'required|string',
             'gender_id'=> 'required',
         ]);
-        
+
         $job_expiry_date = date('Y-m-d', strtotime($request->job_expiry_date));
         $job_slug = Str::slug($request->job_title);
         $recruiterId = Auth::guard('recruiter')->user()->id;
         $recruiter = Recruiter::with('company')->findOrfail($recruiterId);
         $companyId = $recruiter->company->id;
-        $jobSkills = implode(',', $request->job_skill_id);
-        $jobTags = implode(',', $request->job_tag_id);
-        Job::create([
+        $job = Job::create([
             'job_title' => $request->job_title,
             'slug' => $job_slug,
             'description'=> $request->description,
@@ -111,16 +106,29 @@ class JobController extends Controller
             'salary_period_id'=> $request->salary_period_id,
             'job_experiance_id' => $request->job_experiance_id,
             'career_level_id'=> $request->career_level_id,
-            'job_tag_id'=> $jobTags,
             'language_level_id'=> $request->language_level_id,
             'marital_status_id'=> $request->marital_status_id,
             'degree_type_id'=> $request->degree_type_id,
             'job_type_id'=> $request->job_type_id,
             'job_shift_id'=> $request->job_shift_id,
-            'job_skill_id'=> $jobSkills,
             'functional_area_id'=> $request->functional_area_id,
             'gender_id'=> $request->gender_id,
         ]);
+
+        if (isset($request->tags)) {
+            $tags = array_map(function ($tagName) {
+                $tag = JobTag::firstOrCreate(['name' => $tagName]);
+                return $tag->id;
+            }, $request->tags);
+            $job->jobTags()->attach($tags);
+        }
+        if (isset($request->skills)) {
+            $skills = array_map(function ($skillName) {
+                $skills = Skill::firstOrCreate(['name' => $skillName]);
+                return $skills->id;
+            }, $request->skills);
+            $job->skills()->attach($skills);
+        }
         notify()->success('Job created successfully.');
         return redirect()->route('jobs.index');
     }

@@ -36,12 +36,13 @@ class Job extends Model
         'job_type_id',
         'job_shift_id',
         'functional_area_id',
+        'gender_id',
     ];
     public function jobTags(){
-        return $this->belongsToMany(JobTag::class);
+        return $this->belongsToMany(JobTag::class, 'job_jobtag', 'job_id', 'job_tag_id')->withTimestamps();
     }
     public function skills(){
-        return $this->belongsToMany(Skill::class);
+        return $this->belongsToMany(Skill::class, 'job_skill','job_id', 'skill_id')->withTimestamps();
     }
     public function country(){
         return $this->belongsTo(Country::class);
