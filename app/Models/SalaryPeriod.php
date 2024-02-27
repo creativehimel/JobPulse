@@ -13,4 +13,7 @@ class SalaryPeriod extends Model
         'name',
         'status',
     ];
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }

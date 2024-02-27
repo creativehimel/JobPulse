@@ -33,33 +33,30 @@ class Company extends Model
         'pinterest_url',
     ];
 
-    public function recruiter()
-    {
+    public function recruiter(){
         return $this->belongsTo(Recruiter::class);
     }
 
-    public function ownershipType()
-    {
+    public function ownershipType(){
         return $this->belongsTo(OwnershipType::class);
     }
 
-    public function industry()
-    {
+    public function industry(){
         return $this->belongsTo(Industry::class);
     }
 
-    public function companySize()
-    {
+    public function companySize(){
         return $this->belongsTo(CompanySize::class);
     }
 
-    public function city()
-    {
+    public function city(){
         return $this->belongsTo(City::class);
     }
 
-    public function country()
-    {
+    public function country(){
         return $this->belongsTo(Country::class);
+    }
+    public function job(){
+        return $this->hasMany(Job::class);
     }
 }

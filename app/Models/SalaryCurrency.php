@@ -15,4 +15,7 @@ class SalaryCurrency extends Model
         'currency_code',
         'status',
     ];
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }

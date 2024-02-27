@@ -14,13 +14,14 @@ class City extends Model
         'name',
     ];
 
-    public function country()
-    {
+    public function country(){
         return $this->belongsTo(Country::class);
     }
 
-    public function company()
-    {
+    public function company(){
         return $this->hasOne(Company::class);
+    }
+    public function job(){
+        return $this->hasOne(Job::class);
     }
 }

@@ -24,4 +24,7 @@ class Country extends Model
     {
         return $this->hasOne(Company::class);
     }
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }

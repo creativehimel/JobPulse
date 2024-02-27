@@ -20,7 +20,6 @@ return new class extends Migration
             $table->double('salary_to');
             $table->integer('position');
             $table->date('job_expiry_date');
-            $table->integer('no_preference');
             $table->boolean('hide_salary')->default(0)->comment('0 = inactive; 1 = active');
             $table->boolean('is_freelance')->default(0)->comment('0 = inactive; 1 = active');
             $table->boolean('status')->default(0)->comment('0 = pending; 1 = published');
@@ -32,14 +31,13 @@ return new class extends Migration
             $table->unsignedBigInteger('salary_period_id');
             $table->unsignedBigInteger('job_experiance_id');
             $table->unsignedBigInteger('career_level_id');
-            $table->unsignedBigInteger('job_tag_id');
             $table->unsignedBigInteger('language_level_id');
             $table->unsignedBigInteger('marital_status_id');
             $table->unsignedBigInteger('degree_type_id');
             $table->unsignedBigInteger('job_type_id');
             $table->unsignedBigInteger('job_shift_id');
-            $table->unsignedBigInteger('job_skill_id');
             $table->unsignedBigInteger('functional_area_id');
+            $table->unsignedBigInteger('gender_id');
             $table->foreign('country_id')->references('id')->on('countries')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('city_id')->references('id')->on('cities')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('companies')->restrictOnDelete()->cascadeOnUpdate();
@@ -48,14 +46,13 @@ return new class extends Migration
             $table->foreign('salary_period_id')->references('id')->on('salary_periods')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('job_experiance_id')->references('id')->on('job_experiences')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('career_level_id')->references('id')->on('career_levels')->restrictOnDelete()->cascadeOnUpdate();
-            $table->foreign('job_tag_id')->references('id')->on('job_tags')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('language_level_id')->references('id')->on('language_levels')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('degree_type_id')->references('id')->on('degree_types')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('job_type_id')->references('id')->on('job_types')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('job_shift_id')->references('id')->on('job_shifts')->restrictOnDelete()->cascadeOnUpdate();
-            $table->foreign('job_skill_id')->references('id')->on('skills')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('functional_area_id')->references('id')->on('functional_areas')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('gender_id')->references('id')->on('genders')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

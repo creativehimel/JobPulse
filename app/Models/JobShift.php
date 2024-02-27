@@ -13,4 +13,7 @@ class JobShift extends Model
         'shift',
         'description',
     ];
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }

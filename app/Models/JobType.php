@@ -13,4 +13,7 @@ class JobType extends Model
         'name',
         'description',
     ];
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }

@@ -15,4 +15,7 @@ class JobCategory extends Model
         'description',
         'is_featured',
     ];
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }

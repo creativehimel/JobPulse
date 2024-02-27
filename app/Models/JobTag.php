@@ -13,4 +13,7 @@ class JobTag extends Model
         'name',
         'description',
     ];
+    public function jobs(){
+        return $this->belongsToMany(Job::class);
+    }
 }

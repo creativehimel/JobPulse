@@ -19,4 +19,7 @@ class DegreeType extends Model
     {
         return $this->belongsTo(DegreeLevel::class);
     }
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
 }
