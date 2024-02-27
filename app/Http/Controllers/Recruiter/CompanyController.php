@@ -11,6 +11,7 @@ use App\Models\CompanySize;
 use Illuminate\Http\Request;
 use App\Models\OwnershipType;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -20,11 +21,6 @@ class CompanyController extends Controller
 
         return view('recruiter.pages.profile', compact('companyDetails'));
     }
-    public function show($id){
-        $company = Company::findOrFail($id);
-        return $company;
-    }
-
     public function edit($id)
     {
         $companyDetails = Company::with('recruiter', 'ownershipType', 'industry', 'companySize', 'city', 'country')->findOrFail($id);
@@ -53,7 +49,6 @@ class CompanyController extends Controller
             'companySize' => 'required',
             'city'=> 'required',
             'country'=> 'required',
-
         ]);
        $data = [
            'ceo' => $request->ceo,
