@@ -18,4 +18,9 @@ class Industry extends Model
     {
         return $this->hasOne(Company::class);
     }
+
+    public function candidate()
+    {
+        return $this->hasOne(Candidate::class);
+    }
 }

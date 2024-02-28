@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('is_freelance')->default(0)->comment('0 = inactive; 1 = active');
             $table->boolean('status')->default(0)->comment('0 = drafted; 1 = published; 2 = closed');
             $table->boolean('is_featured')->default(0)->comment('0 = inactive; 1 = active');
+            $table->boolean('is_suspended')->default(0)->comment('0 = suspended; 1 = active');
             $table->unsignedBigInteger('country_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('company_id');

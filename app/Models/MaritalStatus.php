@@ -13,7 +13,13 @@ class MaritalStatus extends Model
         'name',
         'status',
     ];
-    public function job(){
+    public function job()
+    {
         return $this->hasOne(Job::class);
+    }
+
+    public function candidate()
+    {
+        return $this->hasOne(Candidate::class);
     }
 }
