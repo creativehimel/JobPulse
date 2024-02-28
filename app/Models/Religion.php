@@ -5,19 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MaritalStatus extends Model
+class Religion extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'name',
-        'status',
+        "name"
     ];
-    public function job()
-    {
-        return $this->hasOne(Job::class);
-    }
-
     public function personalInfo()
     {
         return $this->hasOne(CandidatePersonalInformation::class);

@@ -12,4 +12,8 @@ class Gender extends Model
     protected $fillable = [
         'name',
     ];
+    public function personalInfo()
+    {
+        return $this->hasOne(CandidatePersonalInformation::class);
+    }
 }

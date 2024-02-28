@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             CitySeeder::class,
             GenderSeeder::class,
+            ReligionSeeder::class,
+            ResultTypeSeeder::class,
             JobSkillSeeder::class,
             JobTypeSeeder::class,
             JobShiftSeeder::class,
@@ -42,6 +44,9 @@ class DatabaseSeeder extends Seeder
             OwnershipTypeSeeder::class,
             IndustrySeeder::class,
             CompanySeeder::class,
+            UserSeeder::class,
+            BloodGroupSeeder::class,
+            CandidatePersonalInformationSeeder::class,
         ]);
     }
 }
