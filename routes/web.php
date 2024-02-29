@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\Location\CountryController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
 use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Candidate\CandidateEducationController;
+use App\Http\Controllers\Candidate\CandidateEmploymentController;
 use App\Http\Controllers\Candidate\CandidateTrainingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Recruiter\CompanyController;
@@ -58,6 +59,7 @@ Route::prefix('candidate')->group(function (){
         Route::resource('/my-profiles', CandidateController::class);
         Route::resource('/educations', CandidateEducationController::class);
         Route::resource('/trainings', CandidateTrainingController::class);
+        Route::resource('/employments', CandidateEmploymentController::class);
         
     });
 });

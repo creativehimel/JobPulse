@@ -49,82 +49,20 @@
         <li class="menu-item">
             <a href="{{route('educations.index')}}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-book"></i>
-            <div data-i18n="Education Information">Education Information</div>
+            <div data-i18n="Education Information">Education Info</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="{{route('trainings.index')}}" class="menu-link">
-            <i class="ti ti-stairs-up"></i> 
-            <div data-i18n="Training Information">Training Information</div>
+            <i class="menu-icon ti ti-stairs-up"></i> 
+            <div data-i18n="Training Information">Training Info</div>
             </a>
         </li>
         <li class="menu-item">
-            <a class="menu-link menu-toggle" href="javascript:void(0)"><i class="menu-icon ti ti-layout-navbar"></i>
-                <div>
-                    Account Settings
-                </div></a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a class="menu-link" href="javascript:void(0)">
-                        <div>
-                            Personal Information
-                        </div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link menu-toggle" href="javascript:void(0)">
-                        <div>
-                            Users
-                        </div></a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a class="menu-link" href="javascript:void(0)">
-                                <div>
-                                    List
-                                </div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="javascript:void(0)">
-                                <div>
-                                    View
-                                </div></a>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="javascript:void(0)">
-                                <div>
-                                    Edit
-                                </div></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link menu-toggle" href="javascript:void(0)">
-                        <div>
-                            Authentication
-                        </div></a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a class="menu-link" href="javascript:void(0)">
-                                <div>
-                                    Login
-                                </div></a>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="javascript:void(0)">
-                                <div>
-                                    Register
-                                </div></a>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="javascript:void(0)">
-                                <div>
-                                    Forgot Password
-                                </div></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <a href="{{route('employments.index')}}" class="menu-link">
+            <i class="menu-icon ti ti-briefcase"></i>
+            <div data-i18n="Training Information">Employment Info</div>
+            </a>
         </li>
     </ul>
 </aside>
