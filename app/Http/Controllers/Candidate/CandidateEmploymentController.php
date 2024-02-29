@@ -81,4 +81,11 @@ class CandidateEmploymentController extends Controller
         notify()->success("Candidate Employment updated successfully.");
         return redirect()->route("employments.index");
     }
+
+    public function destory($id){
+        $employment = CandidateEmployment::findOrFail($id);
+        $employment->delete();
+        notify()->success("Candidate Employment deleted successfully.");
+        return redirect()->route("employments.index");
+    }
 }
