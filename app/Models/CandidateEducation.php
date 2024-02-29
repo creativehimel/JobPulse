@@ -19,6 +19,7 @@ class CandidateEducation extends Model
         "user_id",
         "degree_level_id",
         "degree_type_id",
+        "result_type_id",
     ];
     public function user()
     {
@@ -31,5 +32,9 @@ class CandidateEducation extends Model
     public function degreeType()
     {
         return $this->belongsTo(DegreeType::class);
+    }
+    public function resultType()
+    {
+        return $this->belongsTo(ResultType::class);
     }
 }

@@ -49,7 +49,13 @@
         <li class="menu-item">
             <a href="{{route('educations.index')}}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-book"></i>
-            <div data-i18n="Page 2">Education Information</div>
+            <div data-i18n="Education Information">Education Information</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{route('trainings.index')}}" class="menu-link">
+            <i class="ti ti-stairs-up"></i> 
+            <div data-i18n="Training Information">Training Information</div>
             </a>
         </li>
         <li class="menu-item">

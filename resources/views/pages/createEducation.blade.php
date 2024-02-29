@@ -77,6 +77,7 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label class="form-label" for="result_type_id">Result Type : <span class="text-danger">*</span></label>
+                                
                                 <select id="result_type_id" name="result_type_id" class="select2 form-select @error('result_type_id') is-invalid @enderror">
                                     <option value="" disabled selected>Select Result Type</option>
                                     @foreach ($resultTypes as $resultType)

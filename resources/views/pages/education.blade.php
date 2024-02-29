@@ -54,10 +54,7 @@
                                                 <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Passing Year :</span> <span class="fw-bold text-primary">{{$education->passing_year}}</span>
                                             </li>
                                             <li class="d-flex align-items-center mb-3">
-                                                <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Exam :</span> <span></span>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-3">
-                                                <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Result Type :</span> <span></span>
+                                                <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Result Type :</span> <span class="fw-bold text-primary">{{$education->resultType->name}}</span>
                                             </li>
                                         </ul>
                                     </div>

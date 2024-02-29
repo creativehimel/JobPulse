@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ResultType extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "name",
+    ];
+    public function education()
+    {
+        return $this->hasOne(CandidateEducation::class);
+    }
 }
