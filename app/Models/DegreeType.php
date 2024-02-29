@@ -22,4 +22,9 @@ class DegreeType extends Model
     public function job(){
         return $this->hasOne(Job::class);
     }
+
+    public function education()
+    {
+        return $this->hasOne(CandidateEducation::class);
+    }
 }

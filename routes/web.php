@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\Location\CityController;
 use App\Http\Controllers\Admin\Location\CountryController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
 use App\Http\Controllers\Candidate\CandidateController;
+use App\Http\Controllers\Candidate\CandidateEducationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Recruiter\CompanyController;
 use App\Http\Controllers\Recruiter\JobController;
@@ -54,6 +55,7 @@ Route::prefix('candidate')->group(function (){
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         Route::resource('/my-profiles', CandidateController::class);
+        Route::resource('/educations', CandidateEducationController::class);
         
     });
 });

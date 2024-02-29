@@ -47,9 +47,9 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="page-2.html" class="menu-link">
-            <i class="menu-icon tf-icons ti ti-app-window"></i>
-            <div data-i18n="Page 2">Page 2</div>
+            <a href="{{route('educations.index')}}" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-book"></i>
+            <div data-i18n="Page 2">Education Information</div>
             </a>
         </li>
         <li class="menu-item">

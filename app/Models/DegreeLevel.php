@@ -18,4 +18,8 @@ class DegreeLevel extends Model
     {
         return $this->hasMany(DegreeType::class);
     }
+    public function education()
+    {
+        return $this->hasOne(CandidateEducation::class);
+    }
 }

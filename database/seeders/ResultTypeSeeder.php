@@ -16,27 +16,27 @@ class ResultTypeSeeder extends Seeder
         $resultTypes = [
             [
                 'id' => 1,
-                'name' => 'PSC/Equivalent Level',
+                'name' => '1ST DIVISION',
             ],
             [
                 'id' => 2,
-                'name' => 'JSC/Equivalent Level',
+                'name' => '2ND DIVISION',
             ],
             [
                 'id' => 3,
-                'name' => 'SSC/Equivalent Level',
+                'name' => '3RD DIVISION',
             ],
             [
                 'id' => 4,
-                'name' => 'HSC/Equivalent Level',
+                'name' => 'GPA(OUT OF 4)',
             ],
             [
                 'id' => 5,
-                'name' => 'Graduation/Equivalent Level',
+                'name' => 'GPA(OUT OF 5)',
             ],
             [
                 'id' => 6,
-                'name' => 'Masters/Equivalent Level',
+                'name' => 'PASSED',
             ],
         ];
         foreach ($resultTypes as $resultType){
