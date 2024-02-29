@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CandidateEmployment::class);
     }
+
+    public function reference()
+    {
+        return $this->hasMany(CandidateReference::class);
+    }
 }

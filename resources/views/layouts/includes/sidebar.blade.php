@@ -64,5 +64,11 @@
             <div data-i18n="Training Information">Employment Info</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="{{route('references.index')}}" class="menu-link">
+            <i class="menu-icon ti ti-users-group"></i>
+            <div data-i18n="Training Information">Reference Info</div>
+            </a>
+        </li>
     </ul>
 </aside>

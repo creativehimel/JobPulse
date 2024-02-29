@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('candidate_references', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('organization');
+            $table->string('designation');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }
