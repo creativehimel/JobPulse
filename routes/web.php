@@ -26,6 +26,7 @@ use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Candidate\CandidateEducationController;
 use App\Http\Controllers\Candidate\CandidateEmploymentController;
 use App\Http\Controllers\Candidate\CandidateRefereceController;
+use App\Http\Controllers\Candidate\CandidateSkillController;
 use App\Http\Controllers\Candidate\CandidateTrainingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Recruiter\CompanyController;
@@ -62,6 +63,7 @@ Route::prefix('candidate')->group(function (){
         Route::resource('/trainings', CandidateTrainingController::class);
         Route::resource('/employments', CandidateEmploymentController::class);
         Route::resource('/references', CandidateRefereceController::class);
+        Route::resource('/skills', CandidateSkillController::class);
         
     });
 });
