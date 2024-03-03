@@ -76,5 +76,11 @@
             <div data-i18n="Skill Info">Skill Info</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="{{route('languages.index')}}" class="menu-link">
+            <i class="menu-icon ti ti-trending-up"></i>
+            <div data-i18n="Skill Info">Language Info</div>
+            </a>
+        </li>
     </ul>
 </aside>
