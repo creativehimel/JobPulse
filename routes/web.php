@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\Job\SalaryPeriodController;
 use App\Http\Controllers\Admin\Location\CityController;
 use App\Http\Controllers\Admin\Location\CountryController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
+use App\Http\Controllers\Candidate\CandidateCertificateController;
 use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Candidate\CandidateEducationController;
 use App\Http\Controllers\Candidate\CandidateEmploymentController;
@@ -66,6 +67,7 @@ Route::prefix('candidate')->group(function (){
         Route::resource('/references', CandidateRefereceController::class);
         Route::resource('/skills', CandidateSkillController::class);
         Route::resource('/languages', CandidateLanguageController::class);
+        Route::resource('/certificates', CandidateCertificateController::class);
         
     });
 });

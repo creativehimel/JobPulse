@@ -45,23 +45,23 @@
                                         <div class="col-md-6">
                                             <ul class="list-unstyled mb-4 mt-3">
                                                 <li class="d-flex align-items-center mb-3">
-                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Name :</span> <span class="fw-bold text-primary">{{$candidateLanguage->language->name}}</span>
+                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Language :</span> <span class="fw-bold text-primary">{{$candidateLanguage->language->name}}</span>
                                                 </li>
                                                 <li class="d-flex align-items-center mb-3">
-                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Organization :</span> <span class="fw-bold text-primary">{{$candidateLanguage->reading}}</span>
+                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Reading :</span> <span class="fw-bold text-primary">{{$candidateLanguage->reading}}</span>
                                                 </li>
                                                 <li class="d-flex align-items-center mb-3">
-                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Address :</span> <span class="fw-bold text-primary">{{$candidateLanguage->writing}}</span>
+                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Writing :</span> <span class="fw-bold text-primary">{{$candidateLanguage->writing}}</span>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
                                             <ul class="list-unstyled mb-4 mt-3">
                                                 <li class="d-flex align-items-center mb-3">
-                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Designation :</span> <span><span class="fw-bold text-primary">{{$candidateLanguage->speaking}}</span>
+                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Speaking :</span> <span><span class="fw-bold text-primary">{{$candidateLanguage->speaking}}</span>
                                                 </li>
                                                 <li class="d-flex align-items-center mb-3">
-                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Phone :</span> <span><span class="fw-bold text-primary">{{$candidateLanguage->listening}}</span>
+                                                    <i class="ti ti-target-arrow"></i><span class="fw-medium mx-2 text-heading">Listening :</span> <span><span class="fw-bold text-primary">{{$candidateLanguage->listening}}</span>
                                                 </li>
                                             </ul>
                                         </div>

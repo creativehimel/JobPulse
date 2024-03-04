@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CandidateLanguage::class);
     }
+
+    public function candidateCertificate()
+    {
+        return $this->hasMany(CandidateCertificate::class);
+    }
 }
