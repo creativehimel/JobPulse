@@ -15,9 +15,9 @@ class Country extends Model
         'phone_code',
     ];
 
-    public function city()
+    public function state()
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(State::class);
     }
 
     public function company()
