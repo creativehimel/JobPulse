@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('state_id');
             $table->string('name');
-            $table->foreign('country_id')->references('id')->on('countries')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('state_id')->references('id')->on('states')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

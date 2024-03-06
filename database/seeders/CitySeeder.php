@@ -14,6 +14,10 @@ class CitySeeder extends Seeder
     {
         $cities = file_get_contents(storage_path('countries/cities.json'));
         $cities = json_decode($cities, true)['cities'];
-        City::insert($cities);
+        collect($cities)
+            ->chunk(500)
+            ->each(function ($city) {
+                City::insert($city->toArray());
+            });
     }
 }
