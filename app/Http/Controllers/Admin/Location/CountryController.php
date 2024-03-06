@@ -2,60 +2,93 @@
 
 namespace App\Http\Controllers\Admin\Location;
 
-use App\Http\Controllers\Controller;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class CountryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $countries = Country::orderBy('name', 'asc')->get();
-
-        return view('admin.pages.location.country', compact('countries'));
+        if($request->ajax()){
+            $data = Country::select('id', 'name', 'short_code', 'phone_code');
+            return DataTables::of($data)->addIndexColumn()
+            ->addColumn('action', function($row){
+                $button = '<button type="button" name="edit" id="'.$row->id.'" class="edit btn btn-warning btn-sm">Edit</button>';
+                $button .= '<button type="button" name="delete" id="'.$row->id.'" class="ms-1 delete btn btn-danger btn-sm">Delete</button>';
+                return $button;
+            })
+            ->make(true);
+        }
+        return view('admin.pages.location.country.index');
     }
+
 
     public function store(Request $request)
     {
-        //dd($request->all());
-        $request->validate([
+        $rules = array(
             'name' => 'required|string|unique:countries,name',
             'short_code' => 'required|string',
-        ]);
-        $country = Country::create([
+            'phone_code' => 'required|string',
+        );
+        $error = Validator::make($request->all(), $rules);
+
+        if($error->fails())
+        {
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+
+        $data = array(
             'name' => $request->name,
             'short_code' => $request->short_code,
             'phone_code' => $request->phone_code,
-        ]);
-        notify()->success('Country created successfully.');
+        );
+        Country::create($data);
 
-        return redirect()->back();
+        return response()->json(['success' => 'Country added successfully.']);
+        
     }
 
-    public function update(Request $request, $id)
+    public function edit($id){
+        if(request()->ajax()){
+            $data = Country::findOrFail($id);
+            return response()->json(['data' => $data]);
+        }
+    }
+
+    public function update(Request $request)
     {
-        //dd($request->all());
+        $id = $request->hidden_id;
         $country = Country::findOrFail($id);
-        $request->validate([
-            'name' => 'required|string|unique:permissions,name,'.$country->id,
+
+        $rules = array(
+            'name' => 'required|string|unique:countries,name,'.$country->id,
             'short_code' => 'required|string',
-        ]);
-        $country->update([
+            'phone_code' => 'required|string',
+        );
+        $error = Validator::make($request->all(), $rules);
+
+        if($error->fails())
+        {
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+
+        $data = array(
             'name' => $request->name,
             'short_code' => $request->short_code,
             'phone_code' => $request->phone_code,
-        ]);
-        notify()->success('Country updated successfully.');
-
-        return redirect()->back();
+        );
+        $country->update($data);
+        
+        return response()->json(['success' => 'Country updated successfully.']);
     }
 
     public function destroy($id)
     {
         $country = Country::findOrFail($id);
         $country->delete();
-        notify()->success('Country deleted successfully');
-
-        return redirect()->back();
+        return response()->json(['success'=> 'Country deleted successfully.']);
     }
 }

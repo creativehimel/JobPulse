@@ -33,12 +33,15 @@
     
     @stack('custom_css')
     <!-- Page CSS -->
-
+<script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
     <!-- Helpers -->
     <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('assets/js/config.js')}}"></script>
+    {{-- Toastr --}}
+    <link rel="stylesheet" href="{{asset('assets/vendor/libs/toastr/toastr.css')}}" />
+    <script src="{{asset('assets/vendor/libs/toastr/toastr.js')}}"></script>
     {{-- Summer Note --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 

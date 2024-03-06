@@ -173,6 +173,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         // Notify
         Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
     ])->toArray(),
 
     /*

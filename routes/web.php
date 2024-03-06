@@ -87,6 +87,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
         Route::resource('/permissions', PermissionController::class);
         Route::resource('/countries', CountryController::class);
+        Route::get('/get-all-country', [CountryController::class, 'getAllCountry'])->name('admin.country.all');
         Route::resource('/cities', CityController::class);
         Route::resource('/job-categories', JobCategoryController::class);
         Route::resource('/job-tags', JobTagsController::class);
