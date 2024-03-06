@@ -16,42 +16,55 @@ class LanguageSeeder extends Seeder
         $languages = [
             [
                 'name' => 'English',
+                'iso_code' => 'en'
             ],
             [
                 'name' => 'Bangla',
+                'iso_code' => 'bn'
             ],
             [
                 'name' => 'Hindi',
+                'iso_code' => 'hi'
             ],
             [
                 'name' => 'Arabic',
+                'iso_code' => 'ar'
             ],
             [
                 'name' => 'French',
+                'iso_code' => 'fr'
             ],
             [
                 'name' => 'Spanish',
+                'iso_code' => 'es'
             ],
             [
                 'name' => 'Portuguese',
+                'iso_code' => 'pt'
             ],
             [
                 'name' => 'Russian',
+                'iso_code' => 'ru'
             ],
             [
                 'name' => 'German',
+                'iso_code' => 'de'
             ],
             [
                 'name' => 'Chinese',
+                'iso_code' => 'zh'
             ],
             [
                 'name' => 'Japanese',
+                'iso_code' => 'ja'
             ],
             [
                 'name' => 'Korean',
+                'iso_code' => 'ko'
             ],
             [
                 'name' => 'Vietnamese',
+                'iso_code' => 'vi'
             ]
         ];
 

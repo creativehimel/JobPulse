@@ -11,6 +11,8 @@ class Language extends Model
 
     protected $fillable = [
         'name',
+        'iso_code',
+        'description',
     ];
 
     public function candidateLanguage()
