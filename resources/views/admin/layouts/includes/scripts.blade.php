@@ -9,6 +9,7 @@
 <script src="{{asset('assets/vendor/libs/hammer/hammer.js')}}"></script>
 
 <script src="{{asset('assets/vendor/js/menu.js')}}"></script>
+<script src="{{asset('assets/vendor/libs/select2/select2.js')}}"></script>
 
 <!-- endbuild -->
 

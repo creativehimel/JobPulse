@@ -2,60 +2,94 @@
 
 namespace App\Http\Controllers\Admin\Location;
 
-use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\State;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class CityController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $cities = City::orderBy('name', 'asc')->get();
-        $countries = Country::orderBy('name', 'asc')->get();
+        //$cities = City::orderBy('name', 'asc')->get();
+        $states = State::all();
 
-        return view('admin.pages.location.city', compact('cities', 'countries'));
+        if($request->ajax()){
+            $data = City::with('state')->get();
+            return DataTables::of($data)->addIndexColumn()
+            ->addColumn('action', function($row){
+                $button = '<button type="button" name="edit" id="'.$row->id.'" class="edit btn btn-warning btn-sm">Edit</button>';
+                $button .= '<button type="button" name="delete" id="'.$row->id.'" class="ms-1 delete btn btn-danger btn-sm">Delete</button>';
+                return $button;
+            })
+            ->make(true);
+        }
+
+        return view('admin.pages.location.city.index', compact('states'));
+    }
+
+    public function edit($id){
+        if(request()->ajax()){
+            $data = City::findOrFail($id);
+            return response()->json(['data' => $data]);
+        }
     }
 
     public function store(Request $request)
     {
-        //dd($request->all());
-        $request->validate([
+        $rules = [
             'name' => 'required|string',
-            'country_id' => 'required|string',
-        ]);
-        City::create([
-            'name' => $request->name,
-            'country_id' => $request->country_id,
-        ]);
-        notify()->success('City created successfully.');
+            'state_id' => 'required|string',
+        ];
 
-        return redirect()->back();
+        $error = Validator::make($request->all(), $rules);
+
+        if($error->fails()){
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+
+        $data = [
+            'name' => $request->name,
+            'state_id' => $request->state_id,
+        ];
+
+        City::create($data);
+        return response()->json(['success' => 'City added successfully.']);
     }
 
     public function update(Request $request, $id)
     {
-
+        $id = $request->hidden_id;
         $city = City::findOrFail($id);
-        $request->validate([
+        $rules = [
             'name' => 'required|string',
-            'country_id' => 'required|string',
-        ]);
-        $city->update([
-            'name' => $request->name,
-            'country_id' => $request->country_id,
-        ]);
-        notify()->success('City updated successfully.');
+            'state_id' => 'required|string',
+        ];
+        
+        $error = Validator::make($request->all(), $rules);
 
-        return redirect()->back();
+        if($error->fails()){
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+
+        $data = [
+            'name' => $request->name,
+            'state_id' => $request->state_id,
+        ];
+        $city->update($data);
+        
+
+        return response()->json(['success'=> 'City updated successfully.']);
     }
 
     public function destroy($id)
     {
         $city = City::findOrFail($id);
         $city->delete();
-        notify()->success('City deleted successfully.');
 
-        return redirect()->back();
+        return response()->json(['success' => 'City deleted successfully.']);
     }
 }
