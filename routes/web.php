@@ -30,6 +30,7 @@ use App\Http\Controllers\Candidate\CandidateLanguageController;
 use App\Http\Controllers\Candidate\CandidateRefereceController;
 use App\Http\Controllers\Candidate\CandidateSkillController;
 use App\Http\Controllers\Candidate\CandidateTrainingController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Recruiter\CompanyController;
 use App\Http\Controllers\Recruiter\JobController;
@@ -46,10 +47,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
 
 
 Route::prefix('candidate')->group(function (){
