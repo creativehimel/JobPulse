@@ -1,41 +1,46 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\Company\CompanySizeController;
-use App\Http\Controllers\Admin\Company\IndustryController;
-use App\Http\Controllers\Admin\Company\OwnershipTypeController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\General\MaritalStatusController;
-use App\Http\Controllers\Admin\Job\CareerLevelController;
-use App\Http\Controllers\Admin\Job\DegreeLevelController;
-use App\Http\Controllers\Admin\Job\DegreeTypeController;
-use App\Http\Controllers\Admin\Job\FunctionalAreaController;
-use App\Http\Controllers\Admin\Job\JobCategoryController;
-use App\Http\Controllers\Admin\Job\JobExperienceController;
-use App\Http\Controllers\Admin\Job\JobShiftController;
-use App\Http\Controllers\Admin\Job\JobSkillController;
-use App\Http\Controllers\Admin\Job\JobTagsController;
-use App\Http\Controllers\Admin\Job\JobTypeController;
-use App\Http\Controllers\Admin\Job\LanguageLevelController;
-use App\Http\Controllers\Admin\Job\SalaryCurrencyController;
-use App\Http\Controllers\Admin\Job\SalaryPeriodController;
-use App\Http\Controllers\Admin\Location\CityController;
-use App\Http\Controllers\Admin\Location\CountryController;
-use App\Http\Controllers\Admin\Permission\PermissionController;
-use App\Http\Controllers\Candidate\CandidateCertificateController;
-use App\Http\Controllers\Candidate\CandidateController;
-use App\Http\Controllers\Candidate\CandidateEducationController;
-use App\Http\Controllers\Candidate\CandidateEmploymentController;
-use App\Http\Controllers\Candidate\CandidateLanguageController;
-use App\Http\Controllers\Candidate\CandidateRefereceController;
-use App\Http\Controllers\Candidate\CandidateSkillController;
-use App\Http\Controllers\Candidate\CandidateTrainingController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Recruiter\CompanyController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Recruiter\JobController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\JobPageController;
+use App\Http\Controllers\Admin\Job\JobTagsController;
+use App\Http\Controllers\Admin\Job\JobTypeController;
+use App\Http\Controllers\Frontend\BlogPageController;
+use App\Http\Controllers\Recruiter\CompanyController;
+use App\Http\Controllers\Admin\Job\JobShiftController;
+use App\Http\Controllers\Admin\Job\JobSkillController;
+use App\Http\Controllers\Frontend\AboutPageController;
+use App\Http\Controllers\Admin\Location\CityController;
+use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Recruiter\RecruiterController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Job\DegreeTypeController;
+use App\Http\Controllers\Frontend\CompanyPageController;
+use App\Http\Controllers\Frontend\ContactPageController;
+use App\Http\Controllers\Admin\Job\CareerLevelController;
+use App\Http\Controllers\Admin\Job\DegreeLevelController;
+use App\Http\Controllers\Admin\Job\JobCategoryController;
+use App\Http\Controllers\Admin\Company\IndustryController;
+use App\Http\Controllers\Admin\Job\SalaryPeriodController;
+use App\Http\Controllers\Admin\Location\CountryController;
+use App\Http\Controllers\Admin\Job\JobExperienceController;
+use App\Http\Controllers\Admin\Job\LanguageLevelController;
+use App\Http\Controllers\Admin\Job\FunctionalAreaController;
+use App\Http\Controllers\Admin\Job\SalaryCurrencyController;
+use App\Http\Controllers\Candidate\CandidateSkillController;
+use App\Http\Controllers\Admin\Company\CompanySizeController;
+use App\Http\Controllers\Admin\Company\OwnershipTypeController;
+use App\Http\Controllers\Admin\General\MaritalStatusController;
+use App\Http\Controllers\Admin\Permission\PermissionController;
+use App\Http\Controllers\Candidate\CandidateLanguageController;
+use App\Http\Controllers\Candidate\CandidateRefereceController;
+use App\Http\Controllers\Candidate\CandidateTrainingController;
+use App\Http\Controllers\Candidate\CandidateEducationController;
+use App\Http\Controllers\Candidate\CandidateEmploymentController;
+use App\Http\Controllers\Candidate\CandidateCertificateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +53,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/about-us', [AboutPageController::class, 'index'])->name('frontend.about');
+Route::get('/companies', [CompanyPageController::class, 'index'])->name('frontend.company');
+Route::get('/jobs', [JobPageController::class, 'index'])->name('frontend.job');
+Route::get('/contact-us', [ContactPageController::class, 'index'])->name('frontend.contact');
+Route::get('/blogs', [BlogPageController::class, 'index'])->name('frontend.blog');
 
 
 

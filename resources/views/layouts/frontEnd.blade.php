@@ -34,7 +34,7 @@
             <div class="main-header">
                 <div class="header-left">
                     <div class="header-logo">
-                        <a href="index.html" class="d-flex"><img alt="jobhub" src="assets/imgs/theme/jobhub-logo.svg" /></a>
+                        <a href="{{route('index')}}" class="d-flex"><img alt="jobhub" src="{{asset('images/logo.png')}}" width="100" height="50"/></a>
                     </div>
                     <div class="header-nav">
                         <nav class="nav-main-menu d-none d-xl-block">
@@ -43,19 +43,19 @@
                                     <a class="active" href="{{route('index')}}">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#">Jobs</a>
+                                    <a href="{{route('frontend.job')}}">Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="#">Companies</a>
+                                    <a href="{{route('frontend.company')}}">Companies</a>
                                 </li>
                                 <li>
-                                    <a href="#">About Us</a>
+                                    <a href="{{route('frontend.about')}}">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact Us</a>
+                                    <a href="{{route('frontend.contact')}}">Contact Us</a>
                                 </li>
                                 <li>
-                                    <a href="#">Blog</a>
+                                    <a href="{{route('frontend.blog')}}">Blog</a>
                                 </li>
                             </ul>
                         </nav>
@@ -92,7 +92,7 @@
             <div class="mobile-header-top">
                 @auth
                     <div class="user-account">
-                        <img src="assets/imgs/avatar/ava_1.png" alt="jobhub" />
+                        <img src="{{asset('images/logo.png')}}" alt="jobhub" />
                         <div class="content">
                             <h6 class="user-name">Howdy, <span class="text-brand">AliThemes</span></h6>
                             <p class="font-xs text-muted">You have 2 new messages</p>
@@ -176,11 +176,11 @@
                     
                     <div class="mobile-social-icon mb-50">
                         <h6 class="mb-25">Follow Us</h6>
-                        <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt="jobhub" /></a>
-                        <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt="jobhub" /></a>
-                        <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt="jobhub" /></a>
-                        <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt="jobhub" /></a>
-                        <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="{{asset('frontEndAssets')}}/imgs/theme/icons/icon-facebook.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="{{asset('frontEndAssets')}}/imgs/theme/icons/icon-twitter.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="{{asset('frontEndAssets')}}/imgs/theme/icons/icon-instagram.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="{{asset('frontEndAssets')}}/imgs/theme/icons/icon-pinterest.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="{{asset('frontEndAssets')}}/imgs/theme/icons/icon-youtube.svg" alt="jobhub" /></a>
                     </div>
                     <div class="site-copyright">Copyright 2022 © JobPulse. <br />Designed by Md. Himel Ali.</div>
                 </div>
@@ -198,7 +198,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <a href="index.html"><img alt="jobhub" src="assets/imgs/theme/jobhub-logo.svg" /></a>
+                    <a href="{{route('index')}}"><img alt="jobhub" src="{{asset('images/logo.png')}}"  width="150" height="80"/></a>
                     <div class="mt-20 mb-20">Jobhub is the heart of the design community and the best resource to
                         discover and connect with designers and jobs worldwide.</div>
                 </div>
