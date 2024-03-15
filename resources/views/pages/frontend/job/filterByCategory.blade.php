@@ -3,7 +3,8 @@
 @section('page_title', 'Filter By Category')
 
 @section('content')
-<section class="container my-5">
+    <section class="section-box mt-80"></section>
+<section class=" container my-5">
     <div class="row py-5">
         <div class="col-lg-12">
             @foreach($jobs as $job)
@@ -76,4 +77,5 @@
         </div>
     </div>
 </section>
+
 @endsection

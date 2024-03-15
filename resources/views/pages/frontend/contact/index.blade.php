@@ -2,11 +2,7 @@
 
 @section('page_title', 'Contact Us')
 @section('content')
-    <div class="container wide mb-50">
-            <div class="border-radius-15 overflow-hidden">
-                <div id="map-basic" class="leaflet-map"></div>
-            </div>
-        </div>
+
         <div class="container mt-90 mt-md-30">
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
@@ -126,5 +122,5 @@
                 </div>
             </div>
         </section>
-    
+
 @endsection

@@ -15,7 +15,7 @@ class JobPageController extends Controller
     public function index()
     {
         $jobs = Job::with('company', 'country','city', 'jobType', 'salaryCurrency', 'salaryPeriod')->get();
-        $jobCategories = JobCategory::select('id', 'name')->get();
+        $jobCategories = JobCategory::select('id', 'name', 'slug')->get();
         $jobTypes = JobType::select('id', 'name')->get();
         $experienceLevels = JobExperience::select('id', 'name')->get();
         return view('pages.frontend.job.index', compact('jobs', 'jobCategories', 'jobTypes', 'experienceLevels'));
@@ -26,5 +26,15 @@ class JobPageController extends Controller
         $job = Job::with('company', 'country','city', 'jobType', 'salaryCurrency', 'salaryPeriod')->where('slug', $slug)->first();
         $latestJobs = Job::with('country','city', 'jobType', 'salaryCurrency', 'salaryPeriod')->where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         return view('pages.frontend.job.single', compact('job', 'latestJobs'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $jobs = Job::with('company', 'country','city', 'jobType', 'salaryCurrency', 'salaryPeriod')->where('status', 1)->orderBy('created_at', 'desc')->where('job_title', 'like', '%' . $search . '%')->get();
+        $jobCategories = JobCategory::select('id', 'name', 'slug')->get();
+        $jobTypes = JobType::select('id', 'name')->get();
+        $experienceLevels = JobExperience::select('id', 'name')->get();
+        return view('pages.frontend.job.index', compact('jobs', 'jobCategories', 'jobTypes', 'experienceLevels'));
     }
 }

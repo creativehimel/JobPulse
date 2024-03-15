@@ -13,8 +13,8 @@
                             <div class="banner-description mt-30 wow animate__animated animate__fadeInUp">Each month, more than 3 million job seekers turn to
                                 website in their search for work, making over 140,000 applications every single day</div>
                             <div class="form-find mt-60 wow animate__animated animate__fadeInUp">
-                                <form>
-                                    <input type="text" class="form-input input-keysearch mr-10" placeholder="Job title" />
+                                <form action="{{route('frontend.job.search')}}" method="GET">
+                                    <input type="text" name="search" class="form-input input-keysearch mr-10" placeholder="Job title" />
                                     <select class="form-input mr-10 select-active">
                                         <option value="" selected disabled>Location</option>
                                         @foreach ($countries as $country)
@@ -22,7 +22,7 @@
                                         @endforeach
 
                                     </select>
-                                    <button class="btn btn-default btn-find">Find now</button>
+                                    <button type="submit" class="btn btn-default btn-find">Find now</button>
                                 </form>
                             </div>
                             <div class="list-tags-banner mt-60 wow animate__animated animate__fadeInUp">

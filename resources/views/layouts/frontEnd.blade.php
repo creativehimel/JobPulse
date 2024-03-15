@@ -68,36 +68,57 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-right">
-                    <ul class="main-menu">
-                        <li class="has-children">
-                            <a href="javascript:void(0);" class="text-link-bd-btom hover-up">Sign Up</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{route('register')}}">Candidate</a></li>
-                                <li><a href="{{route('recruiter.register')}}">Company</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="javascript:void(0);" class="btn btn-default btn-shadow ml-40 hover-up text-white">Sign In</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{route('login')}}">Candidate</a></li>
-                                <li><a href="{{route('recruiter.login')}}">Company</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                @guest()
+                    <div class="header-right">
+                        <ul class="main-menu">
+                            <li class="has-children">
+                                <a href="javascript:void(0);" class="text-link-bd-btom hover-up">Sign Up</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('register')}}">Candidate</a></li>
+                                    <li><a href="{{route('recruiter.register')}}">Company</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a href="javascript:void(0);" class="btn btn-default btn-shadow ml-40 hover-up text-white">Sign In</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('login')}}">Candidate</a></li>
+                                    <li><a href="{{route('recruiter.login')}}">Company</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                @endguest
+
             </div>
         </div>
     </header>
     <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
-                @auth
+                @auth('web')
                     <div class="user-account">
-                        <img src="{{asset('images/logo.png')}}" alt="jobhub" />
+                        <img src="{{asset('assets/img/avatars/1.png')}}" alt="jobhub" />
                         <div class="content">
-                            <h6 class="user-name">Howdy, <span class="text-brand">AliThemes</span></h6>
-                            <p class="font-xs text-muted">You have 2 new messages</p>
+                            <h6 class="user-name">Hi, <span class="text-brand">{{auth()->user()->name}}</span></h6>
+                            <a href="{{route('candidate.dashboard')}}">Go to Dashboard</a>
+                        </div>
+                    </div>
+                @endauth
+                @auth('recruiter')
+                    <div class="user-account">
+                        <img src="{{asset('assets/img/avatars/1.png')}}" alt="jobhub" />
+                        <div class="content">
+                            <h6 class="user-name">Hi, <span class="text-brand">{{auth()->guard('recruiter')->user()->name}}</span></h6>
+                            <a href="{{route('recruiter.index')}}">Go to Dashboard</a>
+                        </div>
+                    </div>
+                @endauth
+                    @auth('admin')
+                    <div class="user-account">
+                        <img src="{{asset('assets/img/avatars/1.png')}}" alt="jobhub" />
+                        <div class="content">
+                            <h6 class="user-name">Hi, <span class="text-brand">{{auth()->guard('admin')->user()->name}}</span></h6>
+                            <a href="{{route('admin.index')}}">Go to Dashboard</a>
                         </div>
                     </div>
                 @endauth
@@ -143,35 +164,50 @@
                                     <a class="active" href="{{route('index')}}">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#">Jobs</a>
+                                    <a href="{{route('frontend.job')}}">Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="#">Companies</a>
+                                    <a href="{{route('frontend.company')}}">Companies</a>
                                 </li>
                                 <li>
-                                    <a href="#">About Us</a>
+                                    <a href="{{route('frontend.about')}}">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact Us</a>
+                                    <a href="{{route('frontend.contact')}}">Contact Us</a>
                                 </li>
                                 <li>
-                                    <a href="#">Blog</a>
+                                    <a href="{{route('frontend.blog')}}">Blog</a>
                                 </li>
                             </ul>
                         </nav>
                         <!-- mobile menu end -->
                     </div>
-                    @auth
+                    @auth('web')
                         <div class="mobile-account">
-                            <h6 class="mb-10">Your Account</h6>
                             <ul class="mobile-menu font-heading">
-                                <li><a href="#">Profile</a></li>
-                                <li><a href="#">Work Preferences</a></li>
-                                <li><a href="#">My Boosted Shots</a></li>
-                                <li><a href="#">My Collections</a></li>
-                                <li><a href="#">Account Settings</a></li>
-                                <li><a href="#">Go Pro</a></li>
-                                <li><a href="#">Sign Out</a></li>
+                                <form action="{{route('logout')}}" method="post">
+                                    @csrf
+                                    <li>
+                                        <button type="submit" class="btn">Sign Out</button></li>
+                                </form>
+                            </ul>
+                        </div>
+                    @endauth
+                    @auth('recruiter')
+                        <div class="mobile-account">
+                            <ul class="mobile-menu font-heading">
+                                <li>
+                                    <a href="{{route('recruiter.logout')}}">Sign Out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endauth
+                    @auth('admin')
+                        <div class="mobile-account">
+                            <ul class="mobile-menu font-heading">
+                                <li>
+                                    <a href="{{route('admin.logout')}}">Sign Out</a>
+                                </li>
                             </ul>
                         </div>
                     @endauth
