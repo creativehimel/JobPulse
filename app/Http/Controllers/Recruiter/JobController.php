@@ -155,4 +155,113 @@ class JobController extends Controller
         notify()->success('Job created successfully.');
         return redirect()->route('jobs.index');
     }
+
+    public function edit($id){
+        $jobTypes = JobType::select('id', 'name')->get();
+        $jobCategories = JobCategory::select('id', 'name')->get();
+        $jobSkills = Skill::select('id', 'name')->get();
+        $genders = Gender::select('id', 'name')->get();
+        $salaryCurrencies = SalaryCurrency::select('id', 'currency_name')->get();
+        $salaryPeriods = SalaryPeriod::select('id', 'name')->get();
+        $countries = Country::select('id', 'name')->orderBy('name', 'asc')->get();
+        $cities = City::select('id', 'name')->get();
+        $states = State::select('id', 'name')->get();
+        $careerLevels = CareerLevel::select('id', 'name')->get();
+        $jobShifts = JobShift::select('id', 'shift')->get();
+        $jobTags = JobTag::select('id', 'name')->get();
+        $degreeTypes = DegreeType::select('id', 'name')->get();
+        $functionalAreas = FunctionalArea::select('id', 'name')->get();
+        $jobExperiences = JobExperience::select('id', 'name')->get();
+        $maritalStatuses = MaritalStatus::select('id', 'name')->get();
+        $languageLevels = LanguageLevel::select('id', 'name')->get();
+        $job = Job::with('jobTags','skills')->findOrfail($id);
+        return view('recruiter.pages.editJob', compact('job', 'jobTypes', 'jobCategories', 'jobSkills', 'genders', 'salaryCurrencies', 'salaryPeriods', 'countries', 'careerLevels', 'jobShifts', 'jobTags', 'degreeTypes', 'functionalAreas', 'jobExperiences', 'maritalStatuses', 'languageLevels', 'states', 'cities'));
+    }
+
+    public function update(Request $request, $id){
+        $job = Job::findOrFail($id);
+        if($request->hide_salary != 1){
+            $hide_salary = 0;
+        }else{
+            $hide_salary = 1;
+        }
+        $request->validate([
+            'job_title'=> 'required|unique:jobs,job_title,'.$job->id,
+            'description'=> 'required|string',
+            'salary_from'=> 'required|string',
+            'salary_to'=> 'required|string',
+            'position'=> 'required|string',
+            'job_expiry_date'=> 'required|date',
+            'country_id'=> 'required|string',
+            'state_id'=> 'required|string',
+            'city_id'=> 'required|string',
+            'job_category_id'=> 'required|string',
+            'salary_currency_id'=> 'required|string',
+            'salary_period_id'=> 'required|string',
+            'job_experiance_id'=> 'required|string',
+            'career_level_id'=> 'required|string',
+            'language_level_id'=> 'required|string',
+            'degree_type_id'=> 'required|string',
+            'job_type_id'=> 'required|string',
+            'job_shift_id'=> 'required|string',
+            'functional_area_id'=> 'required|string',
+            'gender_id'=> 'required',
+        ]);
+
+        $job_expiry_date = date('Y-m-d', strtotime($request->job_expiry_date));
+        $job_slug = Str::slug($request->job_title);
+        $recruiterId = Auth::guard('recruiter')->user()->id;
+        $recruiter = Recruiter::with('company')->findOrfail($recruiterId);
+        $companyId = $recruiter->company->id;
+        $job->update([
+            'job_title' => $request->job_title,
+            'slug' => $job_slug,
+            'description'=> $request->description,
+            'salary_from' => $request->salary_from,
+            'salary_to'=> $request->salary_to,
+            'position'=> $request->position,
+            'job_expiry_date'=> $job_expiry_date,
+            'hide_salary'=> $hide_salary,
+            'country_id'=> $request->country_id,
+            'state_id'=> $request->state_id,
+            'city_id'=> $request->city_id,
+            'company_id'=> $companyId,
+            'job_category_id'=> $request->job_category_id,
+            'salary_currency_id'=> $request->salary_currency_id,
+            'salary_period_id'=> $request->salary_period_id,
+            'job_experiance_id' => $request->job_experiance_id,
+            'career_level_id'=> $request->career_level_id,
+            'language_level_id'=> $request->language_level_id,
+            'degree_type_id'=> $request->degree_type_id,
+            'job_type_id'=> $request->job_type_id,
+            'job_shift_id'=> $request->job_shift_id,
+            'functional_area_id'=> $request->functional_area_id,
+            'gender_id'=> $request->gender_id,
+        ]);
+
+        if (isset($request->tags)) {
+            $tags = array_map(function ($tagName) {
+                $tag = JobTag::updateOrCreate(['name' => $tagName]);
+                return $tag->id;
+            }, $request->tags);
+            $job->jobTags()->attach($tags);
+        }
+        if (isset($request->skills)) {
+            $skills = array_map(function ($skillName) {
+                $skills = Skill::updateOrCreate(['name' => $skillName]);
+                return $skills->id;
+            }, $request->skills);
+            $job->skills()->attach($skills);
+        }
+
+        notify()->success('Job updated successfully.');
+        return redirect()->route('jobs.index');
+    }
+
+    public function destroy($id){
+        $job = Job::findOrFail($id);
+        $job->delete();
+        notify()->success('Job deleted successfully.');
+        return redirect()->back();
+    }
 }

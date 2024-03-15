@@ -24,6 +24,7 @@ class Job extends Model
         'is_featured',
         'is_suspended',
         'country_id',
+        'state_id',
         'city_id',
         'company_id',
         'job_category_id',
@@ -49,6 +50,9 @@ class Job extends Model
     }
     public function city(){
         return $this->belongsTo(City::class);
+    }
+    public function state(){
+        return $this->belongsTo(State::class);
     }
     public function company(){
         return $this->belongsTo(Company::class);

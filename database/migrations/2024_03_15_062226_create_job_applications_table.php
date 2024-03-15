@@ -18,8 +18,8 @@ return new class extends Migration
             $table->boolean('status')->default(0)->comment('0 = Pending, 1 = Accepted, 2 = Rejected');
             $table->timestamps();
 
-            $table->foreign('job_id')->references('id')->on('jobs')->restrictOnDelete()->cascadeOnUpdate();
-            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('job_id')->references('id')->on('jobs')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

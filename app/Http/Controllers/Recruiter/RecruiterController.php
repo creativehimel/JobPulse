@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Recruiter;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ResetPasswordMail;
+use App\Models\Company;
+use App\Models\Job;
 use App\Models\Recruiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,14 @@ class RecruiterController extends Controller
 {
     public function index()
     {
-        return view('recruiter.pages.dashboard');
+        $recruiterId = Auth::guard('recruiter')->user()->id;
+        $conpany = Company::where('recruiter_id', $recruiterId)->first();
+        $conpanyId = $conpany->id;
+        $totalJobPost = Job::where('company_id', $conpanyId)->count();
+        $totalJobApproved = Job::where('company_id', $conpanyId)->where('status', 1)->count();
+        $totalJobPending = Job::where('company_id', $conpanyId)->where('status', 0)->count();
+        $totalJobRejected = Job::where('company_id', $conpanyId)->where('status', 2)->count();
+        return view('recruiter.pages.dashboard', compact('totalJobPost', 'totalJobApproved', 'totalJobPending','totalJobRejected'));
     }
 
     public function login(Request $request)
@@ -119,4 +128,5 @@ class RecruiterController extends Controller
 
         return redirect()->route('recruiter.login');
     }
+
 }
