@@ -54,7 +54,7 @@
         </li>
         <li class="menu-item">
             <a href="{{route('trainings.index')}}" class="menu-link">
-            <i class="menu-icon ti ti-stairs-up"></i> 
+            <i class="menu-icon ti ti-stairs-up"></i>
             <div data-i18n="Training Information">Training Info</div>
             </a>
         </li>
@@ -86,6 +86,18 @@
             <a href="{{route('certificates.index')}}" class="menu-link">
             <i class="menu-icon ti ti-language"></i>
             <div data-i18n="Skill Info">Certificate Info</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{route('favourite-jobs.index')}}" class="menu-link">
+            <i class="menu-icon ti ti-language"></i>
+            <div data-i18n="Skill Info">Favourite Jobs</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{route('job-applications.index')}}" class="menu-link">
+            <i class="menu-icon ti ti-language"></i>
+            <div data-i18n="Skill Info">Application Jobs</div>
             </a>
         </li>
     </ul>

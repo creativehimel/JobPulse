@@ -34,7 +34,6 @@ return new class extends Migration
             $table->unsignedBigInteger('job_experiance_id');
             $table->unsignedBigInteger('career_level_id');
             $table->unsignedBigInteger('language_level_id');
-            $table->unsignedBigInteger('marital_status_id');
             $table->unsignedBigInteger('degree_type_id');
             $table->unsignedBigInteger('job_type_id');
             $table->unsignedBigInteger('job_shift_id');
@@ -49,7 +48,6 @@ return new class extends Migration
             $table->foreign('job_experiance_id')->references('id')->on('job_experiences')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('career_level_id')->references('id')->on('career_levels')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('language_level_id')->references('id')->on('language_levels')->restrictOnDelete()->cascadeOnUpdate();
-            $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('degree_type_id')->references('id')->on('degree_types')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('job_type_id')->references('id')->on('job_types')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('job_shift_id')->references('id')->on('job_shifts')->restrictOnDelete()->cascadeOnUpdate();

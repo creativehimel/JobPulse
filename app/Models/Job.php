@@ -18,10 +18,11 @@ class Job extends Model
         'salary_to',
         'position',
         'job_expiry_date',
-        'no_preference',
         'hide_salary',
         'is_freelance',
         'status',
+        'is_featured',
+        'is_suspended',
         'country_id',
         'city_id',
         'company_id',
@@ -31,7 +32,6 @@ class Job extends Model
         'job_experiance_id',
         'career_level_id',
         'language_level_id',
-        'marital_status_id',
         'degree_type_id',
         'job_type_id',
         'job_shift_id',
@@ -59,7 +59,7 @@ class Job extends Model
     public function salaryCurrency(){
         return $this->belongsTo(SalaryCurrency::class);
     }
-    public function salarayPeriod(){
+    public function salaryPeriod(){
         return $this->belongsTo(SalaryPeriod::class);
     }
     public function jobExperiance(){
@@ -85,6 +85,16 @@ class Job extends Model
     }
     public function functionalArea(){
         return $this->belongsTo(FunctionalArea::class);
+    }
+
+    public function favouriteJob()
+    {
+        return $this->hasMany(FavouriteJob::class);
+    }
+
+    public function jobApplication()
+    {
+        return $this->hasMany(JobApplication::class);
     }
 
 

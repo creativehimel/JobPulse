@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->boolean('is_featured')->default(0);
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

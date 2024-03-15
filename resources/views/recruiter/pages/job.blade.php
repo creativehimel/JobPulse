@@ -33,7 +33,9 @@
                                 <tr>
                                     <th>S.N</th>
                                     <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Job Category</th>
+                                    <th>Status</th>
+                                    <th>Created At</th>
                                     <th>Featured</th>
                                     <th>Actions</th>
                                 </tr>
@@ -46,15 +48,21 @@
                                                 <span class="fw-medium">{{ucwords($job->job_title)}}</span>
                                             </td>
                                             <td>
-                                                @php
-                                                   echo $job->description
-                                                @endphp
+                                                <span class="fw-medium">{{ucwords($job->jobCategory->name)}}</span>
                                             </td>
                                             <td>
                                                 @if ($job->status == 1)
                                                     <span class="badge bg-label-primary me-1">Active</span>
                                                 @else
                                                     <span class="badge bg-label-danger me-1">Inactive</span>
+                                                @endif
+                                            </td>
+                                            <td>{{\Carbon\Carbon::parse($job->created_at)->format('d M, Y')}}</td>
+                                            <td>
+                                                @if ($job->featured == 1)
+                                                    <span class="badge bg-label-primary me-1">Yes</span>
+                                                @else
+                                                    <span class="badge bg-label-danger me-1">No</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -74,7 +82,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>  
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             @endif

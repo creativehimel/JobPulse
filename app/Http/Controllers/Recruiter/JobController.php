@@ -14,6 +14,7 @@ use App\Models\Recruiter;
 use App\Models\DegreeType;
 use App\Models\CareerLevel;
 use App\Models\JobCategory;
+use App\Models\State;
 use Illuminate\Support\Str;
 use App\Models\SalaryPeriod;
 use Illuminate\Http\Request;
@@ -42,8 +43,7 @@ class JobController extends Controller
         $genders = Gender::all();
         $salaryCurrencies = SalaryCurrency::all();
         $salaryPeriods = SalaryPeriod::all();
-        $countries = Country::all();
-        $cities = City::all();
+        $countries = Country::select('id', 'name')->orderBy('name', 'asc')->get();
         $careerLevels = CareerLevel::all();
         $jobShifts = JobShift::all();
         $jobTags = JobTag::all();
@@ -53,7 +53,28 @@ class JobController extends Controller
         $maritalStatuses = MaritalStatus::all();
         $languageLevels = LanguageLevel::all();
 
-        return view('recruiter.pages.createJob', compact('jobTypes', 'jobCategories', 'jobSkills', 'genders', 'salaryCurrencies', 'salaryPeriods', 'countries', 'cities', 'careerLevels', 'jobShifts', 'jobTags', 'degreeTypes', 'functionalAreas', 'jobExperiences', 'maritalStatuses', 'languageLevels'));
+        return view('recruiter.pages.createJob', compact('jobTypes', 'jobCategories', 'jobSkills', 'genders', 'salaryCurrencies', 'salaryPeriods', 'countries', 'careerLevels', 'jobShifts', 'jobTags', 'degreeTypes', 'functionalAreas', 'jobExperiences', 'maritalStatuses', 'languageLevels'));
+    }
+
+    public function fetchStates($country_id = null)
+    {
+        $states = State::where('country_id', $country_id)->select('id', 'name', 'country_id')->get();
+
+        return response()->json([
+            'status' => 200,
+            'states' => $states
+        ]);
+
+    }
+
+    public function fetchCities($state_id = null)
+    {
+        $cities = City::where('state_id', $state_id)->select('id', 'name', 'state_id')->get();
+
+        return response()->json([
+            'status' => 200,
+            'cities' => $cities
+        ]);
     }
     public function store(Request $request){
         if($request->hide_salary != 1){
@@ -69,6 +90,7 @@ class JobController extends Controller
             'position'=> 'required|string',
             'job_expiry_date'=> 'required|date',
             'country_id'=> 'required|string',
+            'state_id'=> 'required|string',
             'city_id'=> 'required|string',
             'job_category_id'=> 'required|string',
             'salary_currency_id'=> 'required|string',
@@ -76,7 +98,6 @@ class JobController extends Controller
             'job_experiance_id'=> 'required|string',
             'career_level_id'=> 'required|string',
             'language_level_id'=> 'required|string',
-            'marital_status_id'=> 'required|string',
             'degree_type_id'=> 'required|string',
             'job_type_id'=> 'required|string',
             'job_shift_id'=> 'required|string',
@@ -99,6 +120,7 @@ class JobController extends Controller
             'job_expiry_date'=> $job_expiry_date,
             'hide_salary'=> $hide_salary,
             'country_id'=> $request->country_id,
+            'state_id'=> $request->state_id,
             'city_id'=> $request->city_id,
             'company_id'=> $companyId,
             'job_category_id'=> $request->job_category_id,
@@ -107,7 +129,6 @@ class JobController extends Controller
             'job_experiance_id' => $request->job_experiance_id,
             'career_level_id'=> $request->career_level_id,
             'language_level_id'=> $request->language_level_id,
-            'marital_status_id'=> $request->marital_status_id,
             'degree_type_id'=> $request->degree_type_id,
             'job_type_id'=> $request->job_type_id,
             'job_shift_id'=> $request->job_shift_id,

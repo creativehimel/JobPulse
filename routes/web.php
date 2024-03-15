@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Candidate\FavouriteJobController;
+use App\Http\Controllers\Candidate\JobApplicationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -56,8 +58,10 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about-us', [AboutPageController::class, 'index'])->name('frontend.about');
 Route::get('/companies', [CompanyPageController::class, 'index'])->name('frontend.company');
 Route::get('/jobs', [JobPageController::class, 'index'])->name('frontend.job');
+Route::get('/jobs/{slug}', [\App\Http\Controllers\Frontend\JobPageController::class, 'show'])->name('frontend.job.show');
 Route::get('/contact-us', [ContactPageController::class, 'index'])->name('frontend.contact');
 Route::get('/blogs', [BlogPageController::class, 'index'])->name('frontend.blog');
+Route::get('/jobs/categoies/{slug}', [\App\Http\Controllers\Frontend\JobCategoryController::class, 'getFilterCategoryJob'])->name('frontend.jobs.filter');
 
 
 
@@ -77,7 +81,9 @@ Route::prefix('candidate')->group(function (){
         Route::resource('/skills', CandidateSkillController::class);
         Route::resource('/languages', CandidateLanguageController::class);
         Route::resource('/certificates', CandidateCertificateController::class);
-        
+        Route::resource('/favourite-jobs', FavouriteJobController::class);
+        Route::resource('/job-applications', JobApplicationController::class);
+
     });
 });
 
@@ -136,6 +142,8 @@ Route::prefix('recruiter')->group(function () {
         Route::get('/dashboard', [RecruiterController::class, 'index'])->name('recruiter.index');
         Route::resource('/profiles', CompanyController::class);
         Route::resource('/jobs', JobController::class);
+        Route::post('/fetch-states/{country_id}', [JobController::class, 'fetchStates']);
+        Route::post('/fetch-cities/{state_id}', [JobController::class, 'fetchCities']);
         Route::get('/logout', [RecruiterController::class, 'logout'])->name('recruiter.logout');
     });
 

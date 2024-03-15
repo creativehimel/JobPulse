@@ -169,25 +169,35 @@
                                 <label class="form-label" for="country">Country : <span class="text-danger">*</span></label>
                                 <select name="country_id" id="country" class="select2 form-select @error('country_id') is-invalid @enderror">
                                     <option value="" disabled selected>Select Country</option>
-                                    @foreach ($countries as $country)
-                                        <option @if (old('country_id') == $country->id)
-                                            selected
-                                        @endif value="{{$country->id}}">{{$country->name}}</option>
-                                    @endforeach
+                                    @if(!empty($countries))
+                                        @foreach ($countries as $country)
+                                            <option @if (old('country_id') == $country->id)
+                                                        selected
+                                                    @endif value="{{$country->id}}">{{$country->name}}</option>
+                                        @endforeach
+                                    @endif
+
                                 </select>
                                 @error('country_id')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="state">State : <span class="text-danger">*</span></label>
+                                <select name="state_id" id="state" class="select2 form-select @error('state_id') is-invalid @enderror">
+                                    <option value="" disabled selected>Select State</option>
+                                </select>
+                                @error('state_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="city">City : <span class="text-danger">*</span></label>
                                 <select name="city_id" id="city" class="select2 form-select @error('city_id') is-invalid @enderror">
                                     <option value="" disabled selected>Select City</option>
-                                    @foreach ($cities as $city)
-                                        <option @if (old('city_id') == $city->id)
-                                            selected
-                                        @endif value="{{$city->id}}">{{$city->name}}</option>
-                                    @endforeach
+
                                 </select>
                                 @error('city_id')
                                     <span class="text-danger">{{ $message }}</span>
@@ -277,20 +287,7 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label" for="jobExperience">Marital Status : <span class="text-danger">*</span></label>
-                                <select name="marital_status_id" id="jobExperience" class="select2 form-select @error('marital_status_id') is-invalid @enderror">
-                                    <option value="" disabled selected>Select Marital Status</option>
-                                    @foreach ($maritalStatuses as $maritalStatus)
-                                        <option @if (old('marital_status_id') == $maritalStatus->id)
-                                            selected
-                                        @endif value="{{$maritalStatus->id}}">{{$maritalStatus->name}}</option>
-                                    @endforeach
-                                </select>
-                                @error('marital_status_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
+
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="languageLevel">Language Level : <span class="text-danger">*</span></label>
                                 <select name="language_level_id" id="languageLevel" class="select2 form-select @error('language_level_id') is-invalid @enderror">
@@ -332,8 +329,8 @@
                                         </span>
                                     </label>
                                 </div>
-                            </div>
                         </div>
+
                         <div class="ml-4 mb-4">
                             <button type="submit" class="btn btn-primary me-2">Save</button>
                             <a href="{{route('jobs.index')}}" class="btn btn-label-secondary">Cancel</a>
@@ -344,4 +341,49 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $(document).ready(function() {
+            $('#country').on('change', function() {
+                var country_id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "{{url('recruiter/fetch-states/')}}/" + country_id,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#state').find('option:not(:first)').remove();
+                        $('#city').find('option:not(:first)').remove();
+                        if(response.states.length > 0){
+                            $.each(response.states, function(key, value) {
+                                $('#state').append('<option value="'+value.id+'">'+value.name+'</option>');
+                            })
+                        }
+                    }
+                });
+            })
+
+            $('#state').on('change', function() {
+                var state_id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "{{url('recruiter/fetch-cities/')}}/" + state_id,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#city').find('option:not(:first)').remove();
+                        if(response.cities.length > 0){
+                            $.each(response.cities, function(key, value) {
+                                $('#city').append('<option value="'+value.id+'">'+value.name+'</option>');
+                            })
+                        }
+                    }
+                })
+            })
+        });
+    </script>
 @endsection

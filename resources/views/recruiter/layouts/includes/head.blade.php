@@ -17,7 +17,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
         rel="stylesheet" />
-        
+
     <link rel="stylesheet" href="{{asset('assets/vendor/fonts/tabler-icons.css')}}" />
     <!-- <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" /> -->
     <!-- <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" /> -->
@@ -30,9 +30,10 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
-    
+
     @stack('custom_css')
     <!-- Page CSS -->
+    <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
 
     <!-- Helpers -->
     <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
