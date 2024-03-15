@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Job\ManageJobController;
+use App\Http\Controllers\Candidate\CandidateDashboardController;
 use App\Http\Controllers\Candidate\FavouriteJobController;
 use App\Http\Controllers\Candidate\JobApplicationController;
 use App\Http\Controllers\Recruiter\ManageJobApplication;
@@ -68,10 +69,8 @@ Route::get('/jobs/categoies/{slug}', [\App\Http\Controllers\Frontend\JobCategory
 
 
 Route::prefix('candidate')->group(function (){
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard');
-    })->middleware(['auth', 'verified'])->name('candidate.dashboard');
     Route::middleware('auth')->group(function () {
+        Route::get('/dashboard', [CandidateDashboardController::class, 'index'])->name('candidate.dashboard');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
