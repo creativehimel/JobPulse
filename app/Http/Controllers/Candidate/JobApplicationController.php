@@ -16,23 +16,28 @@ class JobApplicationController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'job_id' => 'required',
-        ]);
+        $count = JobApplication::where('job_id', $request->job_id)->where('user_id', auth()->user()->id)->count();
+        if ($count > 0) {
+            notify()->warning('Already Applied');
+            return redirect()->back();
+        } else {
+            $request->validate([
+                'job_id' => 'required',
+            ]);
 
-        JobApplication::create([
-            'job_id' => $request->job_id,
-            'user_id' => auth()->user()->id
-        ]);
-        notify()->success('Job Application Successfully');
-        return redirect()->route('job-applications.index');
+            JobApplication::create([
+                'job_id' => $request->job_id,
+                'user_id' => auth()->user()->id
+            ]);
+            notify()->success('Job Applied Successfully');
+            return redirect()->route('job-applications.index');
+        }
     }
-
-    public function destroy($id)
-    {
-        $jobApplication = JobApplication::findOrFail($id);
-        $jobApplication->delete();
-        notify()->success('Job Application Deleted Successfully');
-        return redirect()->back();
-    }
+        public function destroy($id)
+        {
+            $jobApplication = JobApplication::findOrFail($id);
+            $jobApplication->delete();
+            notify()->success('Job Application Deleted Successfully');
+            return redirect()->back();
+        }
 }

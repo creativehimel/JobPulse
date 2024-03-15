@@ -11,6 +11,7 @@
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
+    @notifyCss
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontEndAssets/imgs/theme/favicon.svg')}}" />
     <!-- Template CSS -->
@@ -19,6 +20,7 @@
 </head>
 
 <body>
+<x-notify::notify />
     <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -99,8 +101,8 @@
                         </div>
                     </div>
                 @endauth
-                    
-                
+
+
                 <div class="burger-icon burger-icon-white">
                     <span class="burger-icon-top"></span>
                     <span class="burger-icon-mid"></span>
@@ -173,7 +175,7 @@
                             </ul>
                         </div>
                     @endauth
-                    
+
                     <div class="mobile-social-icon mb-50">
                         <h6 class="mb-25">Follow Us</h6>
                         <a href="#"><img src="{{asset('frontEndAssets')}}/imgs/theme/icons/icon-facebook.svg" alt="jobhub" /></a>
@@ -258,6 +260,8 @@
     </footer>
     <!-- End Footer -->
     <!-- Vendor JS-->
+
+    @notifyJs
     <script src="{{asset('frontEndAssets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
     <script src="{{asset('frontEndAssets/js/vendor/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('frontEndAssets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>

@@ -683,4 +683,7 @@ video {
     .sm\:p-6 {
         padding: 1.5rem;
     }
+    .notify {
+        z-index: 9999;
+    }
 }

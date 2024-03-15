@@ -84,19 +84,19 @@
         </li>
         <li class="menu-item">
             <a href="{{route('certificates.index')}}" class="menu-link">
-            <i class="menu-icon ti ti-language"></i>
+            <i class="menu-icon ti ti-certificate"></i>
             <div data-i18n="Skill Info">Certificate Info</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="{{route('favourite-jobs.index')}}" class="menu-link">
-            <i class="menu-icon ti ti-language"></i>
+            <i class="menu-icon ti ti-device-floppy"></i>
             <div data-i18n="Skill Info">Favourite Jobs</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="{{route('job-applications.index')}}" class="menu-link">
-            <i class="menu-icon ti ti-language"></i>
+            <i class="menu-icon ti ti-clipboard-check"></i>
             <div data-i18n="Skill Info">Application Jobs</div>
             </a>
         </li>

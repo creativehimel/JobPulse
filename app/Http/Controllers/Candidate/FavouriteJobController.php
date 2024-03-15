@@ -16,6 +16,11 @@ class FavouriteJobController extends Controller
 
     public function store(Request $request)
     {
+        $count = FavouriteJob::where('job_id', $request->job_id)->where('user_id', auth()->user()->id)->count();
+        if ($count > 0) {
+            notify()->warning('Already Added');
+            return redirect()->back();
+        }else{
         $request->validate([
             'job_id' => 'required',
         ]);
@@ -27,6 +32,7 @@ class FavouriteJobController extends Controller
         ]);
         notify()->success('Job added to favourite successfully');
         return redirect('/candidate/favourite-jobs');
+        }
     }
 
     public function destroy($id)
