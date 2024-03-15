@@ -41,20 +41,14 @@
     <ul class="menu-inner py-1">
         <!-- Page -->
         <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+            <a href="{{route('recruiter.index')}}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-            <div data-i18n="Page 1">Page 1</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="page-2.html" class="menu-link">
-            <i class="menu-icon tf-icons ti ti-app-window"></i>
-            <div data-i18n="Page 2">Page 2</div>
+            <div data-i18n="Page 1">Dashboard</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-tags"></i>
+                <i class="menu-icon tf-icons ti ti-briefcase"></i>
                 <div data-i18n="Job Attributes">Job Board</div>
             </a>
 
@@ -65,13 +59,8 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
-                    Job Shifts
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                    Job Skills
+                    <a href="{{route('manage-applications.index')}}" class="menu-link">
+                    Job Applications
                     </a>
                 </li>
             </ul>

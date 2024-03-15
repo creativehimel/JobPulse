@@ -46,7 +46,7 @@
             Dashboard
             </a>
         </li>
-        
+
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-tags"></i>
@@ -122,22 +122,10 @@
             </ul>
         </li>
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <a href="{{route('manage-jobs.index')}}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-briefcase"></i>
-            Jobs
+            Manage Jobs
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{route('countries.index')}}" class="menu-link">
-                    Countries
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{route('cities.index')}}" class="menu-link">
-                    Cities
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -218,7 +206,7 @@
                     Marital Status
                     </a>
                 </li>
-                
+
                 <li class="menu-item">
                     <a href="{{route('countries.index')}}" class="menu-link">
                     Career Levels

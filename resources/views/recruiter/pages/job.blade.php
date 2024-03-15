@@ -34,9 +34,11 @@
                                     <th>S.N</th>
                                     <th>Name</th>
                                     <th>Job Category</th>
-                                    <th>Status</th>
                                     <th>Created At</th>
                                     <th>Featured</th>
+                                    <th>Status</th>
+                                    <th>Is Expired</th>
+                                    <th>Applied</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -50,21 +52,23 @@
                                             <td>
                                                 <span class="fw-medium">{{ucwords($job->jobCategory->name)}}</span>
                                             </td>
-                                            <td>
-                                                @if ($job->status == 1)
-                                                    <span class="badge bg-label-primary me-1">Active</span>
-                                                @else
-                                                    <span class="badge bg-label-danger me-1">Inactive</span>
-                                                @endif
-                                            </td>
                                             <td>{{\Carbon\Carbon::parse($job->created_at)->format('d M, Y')}}</td>
                                             <td>
-                                                @if ($job->featured == 1)
+                                                @if ($job->is_featured == 1)
                                                     <span class="badge bg-label-primary me-1">Yes</span>
                                                 @else
                                                     <span class="badge bg-label-danger me-1">No</span>
                                                 @endif
                                             </td>
+                                            <td>
+                                                @if ($job->status == 1)
+                                                    <span class="badge bg-label-primary me-1">Published</span>
+                                                @else
+                                                    <span class="badge bg-label-danger me-1">Pending</span>
+                                                @endif
+                                            </td>
+                                            <td>{{\Carbon\Carbon::parse($job->job_expiry_date)->format('d M, Y')}}</td>
+                                            <td>{{count($job->jobApplication)}}</td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>

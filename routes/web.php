@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\Job\ManageJobController;
 use App\Http\Controllers\Candidate\FavouriteJobController;
 use App\Http\Controllers\Candidate\JobApplicationController;
+use App\Http\Controllers\Recruiter\ManageJobApplication;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -121,6 +123,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/company-sizes', CompanySizeController::class);
         Route::resource('/ownership-types', OwnershipTypeController::class);
         Route::resource('/industries', IndustryController::class);
+        Route::resource('/manage-jobs', ManageJobController::class);
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     });
@@ -142,6 +145,7 @@ Route::prefix('recruiter')->group(function () {
         Route::get('/dashboard', [RecruiterController::class, 'index'])->name('recruiter.index');
         Route::resource('/profiles', CompanyController::class);
         Route::resource('/jobs', JobController::class);
+        Route::resource('/manage-applications', ManageJobApplication::class);
         Route::post('/fetch-states/{country_id}', [JobController::class, 'fetchStates']);
         Route::post('/fetch-cities/{state_id}', [JobController::class, 'fetchCities']);
         Route::get('/logout', [RecruiterController::class, 'logout'])->name('recruiter.logout');

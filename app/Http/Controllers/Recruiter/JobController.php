@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Recruiter;
 
+use App\Models\Company;
 use App\Models\Job;
 use App\Models\City;
 use App\Models\Skill;
@@ -30,8 +31,9 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::all();
-
+        $recruiterId = Auth::guard('recruiter')->user()->id;
+        $company = Company::where('recruiter_id', $recruiterId)->first();
+        $jobs = Job::with('jobApplication')->where('company_id', $company->id)->get();
         return view('recruiter.pages.job', compact('jobs'));
     }
 
