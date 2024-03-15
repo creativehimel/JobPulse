@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('is_featured')->default(0)->comment('0 = inactive; 1 = active');
             $table->boolean('is_suspended')->default(0)->comment('0 = suspended; 1 = active');
             $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('state_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('company_id');
             $table->unsignedBigInteger('job_category_id');
@@ -40,6 +41,7 @@ return new class extends Migration
             $table->unsignedBigInteger('functional_area_id');
             $table->unsignedBigInteger('gender_id');
             $table->foreign('country_id')->references('id')->on('countries')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('state_id')->references('id')->on('states')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('city_id')->references('id')->on('cities')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('companies')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('job_category_id')->references('id')->on('job_categories')->restrictOnDelete()->cascadeOnUpdate();

@@ -15,28 +15,24 @@ class SalaryPeriodSeeder extends Seeder
         $salaryPeriods = [
             [
                 'id' => 1,
-                'name' => 'Daily Pay Period',
+                'name' => 'Daily',
             ],
             [
                 'id' => 2,
-                'name' => 'Weekly Pay Period',
+                'name' => 'Weekly',
             ],
             [
                 'id' => 3,
-                'name' => 'Every Other Week Pay Period',
+                'name' => 'Semi Monthly',
             ],
             [
                 'id' => 4,
-                'name' => 'Semi Monthly Pay Period',
+                'name' => 'Monthly',
             ],
             [
                 'id' => 5,
-                'name' => 'Monthly Pay Period',
-            ],
-            [
-                'id' => 6,
-                'name' => 'Project Based Pay Period',
-            ],
+                'name' => 'Project Based',
+            ]
         ];
         foreach ($salaryPeriods as $period) {
             SalaryPeriod::create($period);

@@ -49,8 +49,10 @@
                                         <td>
                                             @if($job->status == 1)
                                                 <span class="badge bg-label-success me-1">Published</span>
-                                            @else
+                                            @elseif($job->status == 2)
                                                 <span class="badge bg-label-danger me-1">Rejected</span>
+                                            @else
+                                                <span class="badge bg-label-warning me-1">Pending</span>
                                             @endif
                                         </td>
                                         <td>
@@ -86,7 +88,8 @@
                                                                 <label for="permissionName" class="form-label">Job Status</label>
                                                                 <select class="form-select" name="status" id="status">
                                                                     <option value="1" @if($job->status == 1) selected @endif>Published</option>
-                                                                    <option value="0" @if($job->status == 0) selected @endif>Rejected</option>
+                                                                    <option value="1" @if($job->status == 2) selected @endif>Rejected</option>
+                                                                    <option value="0" @if($job->status == 0) selected @endif>Pending</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-12 mb-2">

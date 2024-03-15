@@ -64,7 +64,6 @@
                             <div class="card-grid hover-up wow animate__animated animate__fadeInUp">
                                 <h5 class="text-center card-heading"><a href="{{route('frontend.jobs.filter', $jobCategory->slug)}}">{{$jobCategory->name}}</a>
                                 </h5>
-                                <p class="text-center text-stroke-40">0 Available Vacancy</p>
                             </div>
                         </div>
                     @endforeach
